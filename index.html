@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hakim Robinson</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -35,7 +36,7 @@
           Hakim Robinson
         </span>
         <svg class="sm-logo" x="0px" y="0px" viewBox="0 0 612 434">
-          <a xlink:href="index.html">
+          <a data-content="index" xlink:href="index.html">
             <polygon points="190,0 382.8,0 195.2,434 2,434 "/>
             <polygon points="395.2,0 588.5,0 472.8,272.2 610,434 418,434 280,271.8 "/>
           </a>
@@ -47,9 +48,9 @@
     <div class="wrapper">
        <nav class="site-nav" role="navigation">
         <ul class="list-nav">
-          <li class="active"><a href="works.html">Works</a></li>
-          <li><a href="bio.html">Bio</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="works.html" data-content="works">Works</a></li>
+          <li><a href="bio.html" data-content="bio">Bio</a></li>
+          <li><a href="services.html" data-content="services">Services</a></li>
         </ul>
         <div class="social-nav">
           <a href="http://www.imdb.com/name/nm2358339/" target="_blank" class="icon imdb">&#57878;</a>
@@ -63,7 +64,7 @@
           <div class="wrapper"></div>
         </div>
         <div class="wrapper">
-          <div class="content-container">
+          <div class="content-container index">
             <section>
               <svg class="lg-logo" width="600" height="710" viewBox="0 0 600 710">
                 <style type="text/css">
@@ -111,6 +112,7 @@
 
 <script src="js/jquery_2_2.js"></script>
 <script src="js/velocity.js"></script>
+<script src="js/jquery.pjax.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
