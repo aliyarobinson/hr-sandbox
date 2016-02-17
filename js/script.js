@@ -105,8 +105,8 @@ var HR = HR || {};
       // for each page create an element with contents from the page
       for (var i = 0; i < HR.pages.length; i++) {
         var pages = HR.pages;
-        var pageBaseURL = "http://localhost:8888/other/hakim/hakim-minimal/";
-        // var pageBaseURL = "http://aliyarobinson.github.io/hakimrobinson/";
+        // var pageBaseURL = "http://localhost:8888/other/hakim/hakim-minimal/";
+        var pageBaseURL = "http://aliyarobinson.github.io/hakimrobinson/";
 
         // SHOULD CREATE A DOC FRAGEMENT HERE BEFORE LAUNCH
 
