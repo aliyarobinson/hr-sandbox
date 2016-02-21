@@ -80,9 +80,9 @@ var HR = HR || {};
             $('#content-holder').empty();
         }
 
-        var pageContent = $(page).contents().clone();
+        var pageContent = $(HR.currPageName).contents().clone();
         // var pageName = page.toString();
-        console.log('page: ', page);
+        console.log('page: ', HR.currPageName);
         console.log('pageContent: ', pageContent);
         var pageName = location.hash.replace('#', '');
         console.log('pageName: ', pageName);

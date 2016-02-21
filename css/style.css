@@ -261,7 +261,8 @@ img {
 
 .title-bar .bar {
   height: 50px;
-  width: 20px;
+  /*width: 20px;*/
+  width: 3%;
   background: #333;
   position: absolute;
   left: 96%;
@@ -568,3 +569,12 @@ img {
     padding: 20px;
 }
 
+@media screen and (max-width: 800px) {
+  .title-bar h2 {
+    width: 100%;
+  }
+
+  .title-bar .bar {
+    display: none;
+  }
+}
