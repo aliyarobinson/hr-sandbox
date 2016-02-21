@@ -1,41 +1,19 @@
+// "use strict"; 
+
 var HR = HR || {};
 
 (function($){
 
   HR = {
 
-    pages: [],
-    currPageArr: location.pathname.split('/'),
-    currPage: location.pathname.split('/').pop().split('.')[0],
-    currHash: location.hash.split('#').pop(),
-    baseURL: location.origin,
+    currPageName:"",
 
     init: function () {
-      HR.getPages();
-      HR.preload();
-      // HR.homeAnim();
-      // HR.updateContent(HR.currPage);
-      console.log('currPageArr: ', HR.currPageArr);
-      console.log('currPage: ', HR.currPage);
-
-      if (HR.currPage === '' || HR.currHash === 'index'){
-        console.log('init on load blank path');
-        HR.currPage = 'index';
-      }
-      HR.updateContent(HR.currPage);
-      HR.homeAnim();
-
-      // $( window ).load(function() {
-      //   console.log('*******************************');
-      //   console.log('on load fired');
-
-      //   if (HR.currPage === ''){
-      //     console.log('init on load blank path');
-      //     HR.currPage = 'index';
-      //   }
-      //   HR.updateContent(HR.currPage);
-      // });
-
+        
+      HR.updatePageName();
+      HR.prepTransition();
+      HR.transitionContent();
+        
       window.onhashchange = HR.locationHashChanged;
 
       /**************************************/
@@ -69,112 +47,61 @@ var HR = HR || {};
       /**************************************/
       /*   Navigation Content Switch Animation on click
       /***************************************************/
-      // $('.site-nav .list-nav a').on('click', function (e) {
       $('[data-content]').on('click', function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         console.log('clicked nav link');
-        var linkName = $(this).data('content');
-        HR.updateContent(linkName);
+        
+        // location.hash = $(this).attr('href');
+        
       });
 
-      // $(document).pjax('[data-content]', '.content-holder');
     },
-
-    locationHashChanged: function() {
-      if ("onhashchange" in window) {
-        console.log('*******************************');
-        console.log('locationHashChanged fired');
-        currHash = location.hash.split('#').pop();
-
-        if (currHash === ''){
-          currHash = 'index';
+    
+    updatePageName: function() {
+        HR.currPageName = location.hash;
+        console.log('updatePageName - name: ', HR.currPageName);
+    },
+    
+    transitionContent: function(page){
+        console.log('transitionContent - name: ', HR.currPageName);
+    },
+    
+    prepTransition: function(page){
+        console.log('prepTransition - name: ', HR.currPageName);
+        $('#content-holder').css({
+          'opacity': 0
+        })
+        
+        if (!HR.isEmpty($('#content-holder'))) {
+            $('#content-holder').empty();
         }
-        HR.updateContent(currHash);
-      }
+
+        var pageContent = $(page).contents().clone();
+        // var pageName = page.toString();
+        console.log('page: ', page);
+        console.log('pageContent: ', pageContent);
+        var pageName = location.hash.replace('#', '');
+        console.log('pageName: ', pageName);
+
+        // console.log('pageName: ', pageName);
+        $("body").attr('class','');
+        $('body').addClass(pageName);
+        pageContent.appendTo('#content-holder');
+        $('#content-holder').animate({
+          opacity: 1
+        },600);
     },
-
-    getPages: function() {
-      HR.pages.push('index');
-      $('.site-nav .list-nav a').each(function(i){
-        var pageURL = $(this).attr('href').split('.')[0];
-        HR.pages.push(pageURL);
-      });
+    
+    locationHashChanged: function () {
+        HR.updatePageName();
+        HR.prepTransition(HR.currPageName);
+        HR.transitionContent(HR.currPageName);
     },
-
-    preload: function () {
-      // for each page create an element with contents from the page
-      for (var i = 0; i < HR.pages.length; i++) {
-        var pages = HR.pages;
-        // var pageBaseURL = "http://localhost:8888/other/hakim/hakim-minimal/";
-        var pageBaseURL = "http://aliyarobinson.github.io/hakimrobinson/";
-
-        // SHOULD CREATE A DOC FRAGEMENT HERE BEFORE LAUNCH
-
-        // Create & add element to main content wrapper
-        $('<div class="content-container ' + pages[i] + '-page" />').appendTo('.main-content > .wrapper');
-
-        // Populate element with corresponding content
-        $( '.content-container.'+pages[i]+'-page' ).load( pageBaseURL + pages[i] + '.html .content-container section');
-
-      }
-    },
-
-    homeAnim: function() {
-      /**************************************/
-      /*   Home Intro Image Animation
-      /***************************************************/
-      var img_counter = 6;
-      var curr_img = $('.lg-logo image');
-      var imgInterval = setInterval(function(){ 
-        animateImgs();
-        if (img_counter === 0){
-          clearInterval(imgInterval);
-        }
-      }, 600);
-
-      function animateImgs(){
-        img_counter--;
-        console.log("counter: ", img_counter); 
-        $img = $('.lg-logo image');
-        $img.eq(img_counter).animate({
-          'opacity':0
-        },300);
-        // curr_img.attr('xlink:href', '../intro_imgs/img_'+img_counter+'.jpg' );
-      }
-    },
-
-    updateContent: function (pageName) {
-      var linkName = pageName;
-      var pageClass = '.' + linkName + '-page';
-      console.log('linkName: ', linkName);
-      $('body').attr('class','');
-      $('body').attr('class',linkName);
-      // $('.content-container').hide();
-      $('.content-holder .wrapper').contents().remove();
-      var pageClone = $(pageClass).contents().clone();
-      $('.content-holder .wrapper').append(pageClone);
-      location.hash = '#' + linkName;
-
-      // location.pathname = 'other/hakim/hakim-minimal/' + linkName + '.html';
+    
+    isEmpty: function( el ){
+        return !$.trim(el.html())
     }
   };
 })(jQuery); // end SEF
 
-// HR.init();
-
-window.onload = function() {
-  console.log('onload');
-  HR.init();
-
-  // // if (!supports_history_api()) { return; }
-  // window.setTimeout(function() {
-  //   // window.addEventListener("popstate", function(e) {
-  //     console.log('popstate');
-  //     HR.updateContent(HR.currPage);
-  //   // }, false);
-  // }, 1);
-}
-
-function supports_history_api() {
-  return !!(window.history && history.pushState);
-}
+HR.init();
