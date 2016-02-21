@@ -59,6 +59,10 @@ var HR = HR || {};
     
     updatePageName: function() {
         HR.currPageName = location.hash;
+
+        if(location.hash === ''){
+          HR.currPageName = location.hash = '#home';
+        }
         console.log('updatePageName - name: ', HR.currPageName);
     },
     
@@ -87,9 +91,37 @@ var HR = HR || {};
         $("body").attr('class','');
         $('body').addClass(pageName);
         pageContent.appendTo('#content-holder');
+
+        if(location.hash === '#home'){
+          HR.homeAnim();
+        }
         $('#content-holder').animate({
           opacity: 1
         },600);
+    },
+
+    homeAnim: function() {
+      /**************************************/
+      /*   Home Intro Image Animation
+      /***************************************************/
+      var img_counter = 6;
+      var curr_img = $('.lg-logo image');
+      var imgInterval = setInterval(function(){ 
+        animateImgs();
+        if (img_counter === 0){
+          clearInterval(imgInterval);
+        }
+      }, 600);
+
+      function animateImgs(){
+        img_counter--;
+        console.log("counter: ", img_counter); 
+        $img = $('.lg-logo image');
+        $img.eq(img_counter).animate({
+          'opacity':0
+        },300);
+        // curr_img.attr('xlink:href', '../intro_imgs/img_'+img_counter+'.jpg' );
+      }
     },
     
     locationHashChanged: function () {
