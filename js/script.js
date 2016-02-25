@@ -9,12 +9,13 @@ var HR = HR || {};
     currPageName:"",
 
     init: function () {
-        
+        console.log('init');
       HR.updatePageName();
-      HR.prepTransition();
-      HR.transitionContent();
+      // HR.prepTransition();
+      // HR.transitionContent();
         
       window.onhashchange = HR.locationHashChanged;
+      $(window).on('load', HR.updatePageContent );
 
       /**************************************/
       /*   Site Nav button animation on click
@@ -65,9 +66,45 @@ var HR = HR || {};
         }
         console.log('updatePageName - name: ', HR.currPageName);
     },
-    
+
+    imagesLoaded: function() {
+      // test if loaded
+      // var imgs = $('img');
+      $('image').load(function() {
+        console.log('imagesLoaded');
+        return true;
+      });
+      // $('image').bind('load', function() {
+      //   console.log('new image loaded: ' + $(this).attr('xlink:href'));
+      // });
+    },
+
+    videosLoaded: function() {
+      $('iframe').load(function() {
+        console.log('videosLoaded');
+        return true;
+      });
+    },
+
     transitionContent: function(page){
         console.log('transitionContent - name: ', HR.currPageName);
+        HR.imagesLoaded();
+        if (HR.imagesLoaded && HR.videosLoaded){
+          if(location.hash === '#home'){
+            HR.homeAnim();
+          }
+
+          $('.loader').animate({
+            'opacity':0
+          },400)
+          .css({
+            'display': 'none'
+          });
+
+          $('#content-holder').animate({
+            opacity: 1
+          },600);
+        }
     },
     
     prepTransition: function(page){
@@ -92,12 +129,12 @@ var HR = HR || {};
         $('body').addClass(pageName);
         pageContent.appendTo('#content-holder');
 
-        if(location.hash === '#home'){
-          HR.homeAnim();
-        }
-        $('#content-holder').animate({
-          opacity: 1
-        },600);
+        // if(location.hash === '#home'){
+        //   HR.homeAnim();
+        // }
+        // $('#content-holder').animate({
+        //   opacity: 1
+        // },600);
     },
 
     homeAnim: function() {
@@ -125,6 +162,14 @@ var HR = HR || {};
     },
     
     locationHashChanged: function () {
+        console.log('locationHashChanged');
+        HR.updatePageContent();
+        // HR.updatePageName();
+        // HR.prepTransition(HR.currPageName);
+        // HR.transitionContent(HR.currPageName);
+    },
+
+    updatePageContent: function () {
         HR.updatePageName();
         HR.prepTransition(HR.currPageName);
         HR.transitionContent(HR.currPageName);
