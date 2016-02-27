@@ -157,7 +157,8 @@ var HR = HR || {};
     transitionContent: function(page){
         console.log('transitionContent - name: ', HR.currPageName);
         HR.imagesLoaded();
-        if (HR.imagesLoaded && HR.videosLoaded){
+        // if (HR.imagesLoaded && HR.videosLoaded){
+        if (HR.imagesLoaded){
           if(location.hash === '#home'){
             HR.homeAnim();
           }

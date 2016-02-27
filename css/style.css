@@ -284,6 +284,7 @@ img {
 .video {
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -314,8 +315,10 @@ img {
 *******************************/
 .site-header {
   height: 90px;
-  position: relative;
+  position: fixed;
   margin: 20px 0;
+  width: 100%;
+  z-index: 2;
 }
 
 .site-header .wrapper {
@@ -406,7 +409,7 @@ img {
   /*position: absolute;*/
   position: fixed;
   margin-left: -320px;
-  z-index: 2;
+  z-index: 290;
   /*-webkit-transition: margin-left 2s ease-in-out;
   -moz-transition: margin-left 2s ease-in-out;
   transition: margin-left 2s ease-in-out;*/
@@ -414,6 +417,11 @@ img {
 
 .site-nav.active {
   margin-left: 0;
+}
+
+.site-nav.expanded + .main-content {
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .site-nav-bkgd {
@@ -424,6 +432,7 @@ img {
   top: 0;
   opacity: 0;
   height: 100%;
+  pointer-events: none;
   z-index: 2;
   /*-webkit-transition: all 1.5s ease-in-out 0.5s;
   -moz-transition: all 1.5s ease-in-out 0.5s;
@@ -459,6 +468,7 @@ img {
 }
 
 .content-wrapper {
+  padding: 120px 0 0;
   /*position: relative;
   left: -320px;
   overflow: hidden;*/
@@ -474,6 +484,8 @@ img {
   height: 100%;
   padding: 0 0 100px;
   z-index: 1;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 #content-holder {
@@ -849,8 +861,12 @@ img {
 
 @media screen and (max-width: 800px) {
 
+  .wrapper {
+    width: 90%;
+  }
+
   .site-nav {
-    width: 35%;
+    width: 45%;
   }
 
   .site-nav-bkgd {
@@ -862,11 +878,32 @@ img {
     width: 180%;
   }
 
+  .social-nav .icon {
+    font-size: 35px;
+  }
+
   .title-bar h2 {
     width: 100%;
   }
 
   .title-bar .bar {
+    display: none;
+  }
+
+  .works .video-item > * {
+    float: none;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    padding-bottom: 70%;
+  }
+
+  .video-content-wrapper {
+    width: 100%;
+  }
+
+  .video-content-wrapper .video-description {
     display: none;
   }
 }
