@@ -34,35 +34,51 @@ var HR = HR || {};
       /**************************************/
       /*   Preping Videos
       /***************************************************/
-      HR.createVidArr();
-      HR.createVidPoster();
+      // HR.createVidArr();
+      // HR.createVidPoster();
+      // HR.bindVidEvent();
+      HR.addVideoImgs();
       HR.bindVidEvent();
 
-
-      $(".video").each(function() {
+      // $('.video').on('click', function() { console.log('!!!'); });
+      $(document).on('click', '.video', function() { 
+        console.log('!!!'); 
         var vidID = $(this).attr('id');
-        console.log('youtube id: ', vidID);
 
-        // Based on the YouTube ID, we can easily find the thumbnail image
-        $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/hqdefault.jpg)');
+        var iframe_url = "https://www.youtube.com/embed/" + vidID + "?autoplay=1&autohide=1";
     
-        // Overlay the Play icon to make it look like a video player
-        $(this).append($('<div/>', {'class': 'play'}));
-    
-        // $(document).delegate('#'+vidID, 'click', function() {
-        $(this).find('.play').on('click', function(e) {
-            console.log('video');
-            // Create an iFrame with autoplay set to true
-            var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
-            if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
-    
-            // The height and width of the iFrame should be the same as parent
-            var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
-    
-            // Replace the YouTube thumbnail with YouTube HTML5 Player
-            $(this).replaceWith(iframe);
-        });
+        // The height and width of the iFrame should be the same as parent
+        var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': '100%', 'height': '300px' })
+
+        // Replace the YouTube thumbnail with YouTube HTML5 Player
+        $(this).append(iframe);
       });
+
+
+      // $(".video").each(function() {
+      //   var vidID = $(this).attr('id');
+      //   console.log('youtube id: ', vidID);
+
+      //   // Based on the YouTube ID, we can easily find the thumbnail image
+      //   $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/hqdefault.jpg)');
+    
+      //   // Overlay the Play icon to make it look like a video player
+      //   $(this).append($('<div/>', {'class': 'play'}));
+    
+      //   // $(document).delegate('#'+vidID, 'click', function() {
+      //   $(this).find('.play').on('click', function(e) {
+      //       console.log('video');
+      //       // Create an iFrame with autoplay set to true
+      //       var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+      //       if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
+    
+      //       // The height and width of the iFrame should be the same as parent
+      //       var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
+    
+      //       // Replace the YouTube thumbnail with YouTube HTML5 Player
+      //       $(this).replaceWith(iframe);
+      //   });
+      // });
         
 
       /**************************************/
@@ -133,6 +149,49 @@ var HR = HR || {};
       // $('image').bind('load', function() {
       //   console.log('new image loaded: ' + $(this).attr('xlink:href'));
       // });
+    },
+
+    addVideoImgs: function() {
+        console.log('addVideoImg');
+
+      $('.video').each(function(i){
+        var 
+        $this = $(this), vidID = $this.attr('id');
+
+        // HR.vids.push(vidID);
+
+        $this.append('<img src="http://i.ytimg.com/vi/' + vidID + '/hqdefault.jpg" />');
+        $this.append('<a href="#" class="play-vid">Play</a>');
+        // $this.on('click', HR.swapImgVid(vidID, $this));
+        // $this.on('click', function(){
+        //   console.log('clicked vid img');
+        //   $this.call($this, swapImgVid(vidID, $this));
+        // });
+      })
+    },
+
+    bindVidEvent: function() {
+        console.log('bindVidEvent');
+
+      $('.video').each(function(i){
+        console.log('bindVidEvent video');
+        var 
+        $this = $(this), vidID = $this.attr('id');
+
+        $this.on('click', HR.swapImgVid(vidID, $this));
+
+      });
+    },
+
+    swapImgVid: function(vidID, context) {
+      console.log('swapImgVid');
+      var iframe_url = "https://www.youtube.com/embed/" + vidID + "?autoplay=1&autohide=1";
+    
+      // The height and width of the iFrame should be the same as parent
+      var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': '100%', 'height': '300px' })
+
+      // Replace the YouTube thumbnail with YouTube HTML5 Player
+      context.append(iframe);
     },
 
     videosLoaded: function() {
