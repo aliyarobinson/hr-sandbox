@@ -29,7 +29,7 @@ var HR = HR || {};
         $('p').css('font-wieght',800);
       } 
 
-
+// <iframe width="853" height="480" src="https://www.youtube.com/embed/ebskHpNblZU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
       /**************************************/
       /*   Preping Videos
@@ -48,7 +48,7 @@ var HR = HR || {};
         var iframe_url = "https://www.youtube.com/embed/" + vidID + "?autoplay=1&autohide=1";
     
         // The height and width of the iFrame should be the same as parent
-        var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': '100%', 'height': '300px' })
+        var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url })
 
         // Replace the YouTube thumbnail with YouTube HTML5 Player
         $(this).append(iframe);

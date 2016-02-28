@@ -244,13 +244,22 @@ img {
   height: 0;
 }
 
-.responsive-embed {
+/*.responsive-embed {
     position:relative;
     padding-bottom:56.25%;
     height:0;
     overflow:hidden;
     max-width:100%;
-    /*border-top: 5px solid #ebebeb;*/
+}*/
+
+.responsive-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 720px;
+    /* border-top: 5px solid #ebebeb; */
+    width: 100%;
 }
 
 .responsive-embed iframe,.responsive-embed object,.responsive-embed embed {
