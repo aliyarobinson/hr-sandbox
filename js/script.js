@@ -160,8 +160,8 @@ var HR = HR || {};
 
         // HR.vids.push(vidID);
 
-        $this.append('<img src="http://i.ytimg.com/vi/' + vidID + '/hqdefault.jpg" />');
-        $this.append('<a href="#" class="play-vid"><span class="icon st-icon-triangle-down st-shape-icon"></span></a>');
+        // $this.append('<img src="http://i.ytimg.com/vi/' + vidID + '/hqdefault.jpg" />');
+        // $this.append('<a href="#" class="play-vid"><span class="icon st-icon-triangle-down st-shape-icon"></span></a>');
         // $this.on('click', HR.swapImgVid(vidID, $this));
         // $this.on('click', function(){
         //   console.log('clicked vid img');

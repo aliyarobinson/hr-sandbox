@@ -236,6 +236,9 @@ img {
   color: #fff;
   font-size: 10px;
   letter-spacing: 1px;
+  width: 100%;
+  max-width: 200px;
+  font-family: 'DISCO', arial;
 }
 
 .hide-copy {
@@ -344,14 +347,17 @@ img {
 
 
 .video .play-vid .icon {
-    opacity: .8;
-    font: 0px 'stackicons';
-    transition: all 0.2s ease-out;
-    width: 0;
-    height: 0;
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-left: 60px solid #ccc;
+  opacity: .8;
+  font: 0px 'stackicons';
+  transition: all 0.2s ease-out;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 60px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .video:hover .play-vid .icon {
@@ -644,16 +650,28 @@ img {
 .video-content-wrapper .video-title {
   font-size: 26px;
   font-weight: bold;
-  color: #999;
+  color: #333;
 }
 
-.video-content-wrapper .video-description {
+/*.video-content-wrapper .video-description {
   position: absolute;
   bottom: 0;
   line-height: 26px;
   font-size: 22px;
   letter-spacing: 0.5px;
-  color: #999;
+  color: #333;
+}
+*/
+.video-content-wrapper .video-description {
+    position: absolute;
+    bottom: 60px;
+    line-height: 20px;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    color: #333;
+    height: 60px;
+    overflow: hidden;
 }
 
 
@@ -986,4 +1004,18 @@ img {
  .more-videos {
   display: none;
  }
+
+ .legal{
+  color: #fff;
+  font-size: 10px;
+  letter-spacing: 0px;
+  width: 100%;
+  max-width: 70px;
+  font-family: 'DISCO', arial;
+}
+
+.works .video-item {
+    margin-bottom: -30px;
+}
+
 }
