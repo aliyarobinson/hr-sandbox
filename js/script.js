@@ -131,11 +131,21 @@ var HR = HR || {};
     },
     
     updatePageName: function() {
-        HR.currPageName = location.hash;
+        var urlPathArr = location.pathname.split('/');
+        var urlPageStr = urlPathArr[urlPathArr.length - 1];
+        console.log('urlPathArr: ', urlPathArr);
+        console.log('urlPageStr: ', urlPageStr);
 
-        if(location.hash === ''){
-          HR.currPageName = location.hash = '#home';
+        if(urlPageStr === '' || null){
+          HR.currPageName = 'home';
+          console.log('updatePageName - name: ', HR.currPageName);
+
+          return;
         }
+
+        HR.currPageName = urlPageStr.replace('.html','');
+
+        
         console.log('updatePageName - name: ', HR.currPageName);
     },
 
@@ -218,20 +228,20 @@ var HR = HR || {};
         HR.imagesLoaded();
         // if (HR.imagesLoaded && HR.videosLoaded){
         if (HR.imagesLoaded){
-          if(location.hash === '#home'){
+          if(page === 'home'){
             HR.homeAnim();
           }
 
-          $('.loader').animate({
-            'opacity':0
-          },400)
-          .css({
-            'display': 'none'
-          });
+          // $('.loader').animate({
+          //   'opacity':0
+          // },400)
+          // .css({
+          //   'display': 'none'
+          // });
 
-          $('#content-holder').animate({
-            opacity: 1
-          },600);
+          // $('#content-holder').animate({
+          //   opacity: 1
+          // },600);
         }
     },
     
@@ -245,24 +255,6 @@ var HR = HR || {};
             $('#content-holder').empty();
         }
 
-        var pageContent = $(HR.currPageName).contents().clone();
-        // var pageName = page.toString();
-        console.log('page: ', HR.currPageName);
-        console.log('pageContent: ', pageContent);
-        var pageName = location.hash.replace('#', '');
-        console.log('pageName: ', pageName);
-
-        // console.log('pageName: ', pageName);
-        $("body").attr('class','');
-        $('body').addClass(pageName);
-        pageContent.appendTo('#content-holder');
-
-        // if(location.hash === '#home'){
-        //   HR.homeAnim();
-        // }
-        // $('#content-holder').animate({
-        //   opacity: 1
-        // },600);
     },
 
     homeAnim: function() {

@@ -450,13 +450,13 @@ img {
   fill: #333;
 }
 
-.home .sm-logo polygon {
+.home-page .sm-logo polygon {
   fill: transparent;
   stroke-width: 2;
   stroke: #999;
 }
 
-.home .sm-logo polygon:first-child {
+.home-page .sm-logo polygon:first-child {
   fill: transparent;
   stroke-width: 2;
   stroke: #333;
@@ -577,22 +577,22 @@ img {
   Home Styles
 
 *******************************/
-.home{}
+.home-page{}
 
-.home .content-wrapper,
-.home .wrapper,
-.home section {
+.home-page .content-wrapper,
+.home-page .wrapper,
+.home-page section {
     height: 100%;
 }
 
-.home h1 {
+.home-page h1 {
   max-width: 607px;
 }
-.home svg {
+.home-page svg {
   width: 100%;
   height: auto;
 }
-.home svg.lg-logo {
+.home-page svg.lg-logo {
   display: block;
   /*height: calc( 100% - 100px);*/
   height: 100%;
@@ -601,11 +601,11 @@ img {
 #logo-path polygon {
   fill: #999;
 }
-.home .title {}
-.home .title .firstName {
+.home-page .title {}
+.home-page .title .firstName {
   text-transform: uppercase;
 }
-.home .title .lastName {
+.home-page .title .lastName {
   text-transform: lowercase;
 }
 
@@ -625,29 +625,29 @@ img {
   Works Styles
 
 *******************************/
-.works{}
+.works-page {}
 
-.works .latest {
+.works-page .latest {
   margin: 40px 0 0;
 }
 
-.works .video-item {
+.works-page .video-item {
   padding: 40px 0 0;
   clear: both;
   overflow: hidden;
   position: relative;
 }
 
-.works .video-item:first-child {
+.works-page .video-item:first-child {
   padding: 0;
 }
 
-.works .video-item > * {
+.works-page .video-item > * {
   float: left;
   margin: 0 0 0 20px;
 }
 
-.works .video-item > *:first-child {
+.works-page .video-item > *:first-child {
   margin: 0;
 }
 
@@ -993,7 +993,7 @@ img {
     display: none;
   }
 
-  .works .video-item > * {
+  .works-page .video-item > * {
     float: none;
   }
 
@@ -1027,7 +1027,7 @@ img {
   font-family: 'DISCO', arial;
 }
 
-.works .video-item {
+.works-page .video-item {
     margin-bottom: -30px;
 }
 
