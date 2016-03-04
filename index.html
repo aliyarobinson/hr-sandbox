@@ -39,8 +39,8 @@
         </span>
         <svg class="sm-logo" x="0px" y="0px" viewBox="0 0 612 434">
           <a data-content="index" xlink:href="#">
-            <polygon points="190,0 382.8,0 195.2,434 2,434 "/>
-            <polygon points="395.2,0 588.5,0 472.8,272.2 610,434 418,434 280,271.8 "/>
+            <polygon stroke="#333333" stroke-width="5" points="190,0 382,0 195,434 2,434 "/>
+            <polygon stroke="#999999" stroke-width="5" points="395,0 588,0 472,272 610,434 418,434 280,271 "/>
           </a>
         </svg>
       </h1>
@@ -75,35 +75,21 @@
           <div id="home" class="content-container home">
             <section>
               <svg class="lg-logo" width="600" height="710" viewBox="0 0 600 710">
-                <style type="text/css">
-                  .st0{font-family:'DISCO';}
-                  .st1{font-size:150px;}
-                  .st2{letter-spacing:6px;}
-                  .st3{font-size:50px;}
-                  .st4{letter-spacing:48px;}
-                  .st5{font-family:'Lane-Narrow'; font-weight: 800;}
-                  .st6{font-size:20px;}
-                  .st7{letter-spacing:4px;}
-                </style>
-                <defs>
-                  <clipPath id="hr-logo">
-                    <polygon points="190,0 382,0 195,434 2,434 "/>
-                    <polygon points="395,0 588,0 472,272 610,434 418,434 280,271 "/>
-                  </clipPath>
-                </defs>
+
                 <polygon fill="#333333" points="190,0 382,0 195,434 2,434 "/>
                 <polygon fill="#999999" points="395,0 588,0 472,272 610,434 418,434 280,271 "/>
+
                 <text transform="matrix(1 0 0 1 -22 565.959)" class="st0 st1 st2">HAKIM</text>
                 <text transform="matrix(1 0 0 1 4.4722 622.4541)" class="st0 st3 st4">robinson</text>
                 <text transform="matrix(1 0 0 1 10 704.9502)" class="st5 st6 st7">DIRECTOR</text>
                 <text transform="matrix(1 0 0 1 231.0747 704.9502)" class="st5 st6 st7">PRODUCER</text>
                 <text transform="matrix(1 0 0 1 445 704.9502)" class="st5 st6 st7">CONSULTANT</text>
-                <image width="607" height="434" xlink:href="img/intro_imgs/img_1.jpg" clip-path="url(#hr-logo)" />
-                <image width="607" height="434" xlink:href="img/intro_imgs/img_2.jpg" clip-path="url(#hr-logo)" />
-                <image width="607" height="434" xlink:href="img/intro_imgs/img_3.jpg" clip-path="url(#hr-logo)" />
-                <image width="607" height="434" xlink:href="img/intro_imgs/img_4.jpg" clip-path="url(#hr-logo)" />
-                <image width="607" height="434" xlink:href="img/intro_imgs/img_5.jpg" clip-path="url(#hr-logo)" />
-                <image width="607" height="434" xlink:href="img/intro_imgs/img_6.jpg" clip-path="url(#hr-logo)" />
+                <image width="607" height="434" xlink:href="img/intro_imgs/img_1.jpg" clip-path="url(#logo-path)" />
+                <image width="607" height="434" xlink:href="img/intro_imgs/img_2.jpg" clip-path="url(#logo-path)" />
+                <image width="607" height="434" xlink:href="img/intro_imgs/img_3.jpg" clip-path="url(#logo-path)" />
+                <image width="607" height="434" xlink:href="img/intro_imgs/img_4.jpg" clip-path="url(#logo-path)" />
+                <image width="607" height="434" xlink:href="img/intro_imgs/img_5.jpg" clip-path="url(#logo-path)" />
+                <image width="607" height="434" xlink:href="img/intro_imgs/img_6.jpg" clip-path="url(#logo-path)" />
               </svg>
             </section>
           </div>
@@ -238,11 +224,18 @@
     </div>
   </div>
 
-  <footer class="site-footer">
-    <div class="wrapper">
-    <!-- <span class="legal">&copy; copyright 2016. All Rights Reserved. Hakim Robinson.</span> -->
-    </div>
-  </footer>
+  <svg>
+    <defs>
+      <g id="hr-logo">
+        <polygon points="190,0 382,0 195,434 2,434 "/>
+        <polygon points="395,0 588,0 472,272 610,434 418,434 280,271 "/>
+      </g>
+      <clipPath id="logo-path">
+        <polygon points="190,0 382,0 195,434 2,434 "/>
+        <polygon points="395,0 588,0 472,272 610,434 418,434 280,271 "/>
+      </clipPath>
+    </defs>
+  </svg>
 
 <script src="js/jquery_2_2.js"></script>
 <script src="js/velocity.js"></script>
