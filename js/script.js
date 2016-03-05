@@ -7,6 +7,7 @@ var HR = HR || {};
   HR = {
 
     currPageName:"",
+    homeState: false,
 
     init: function () {
         console.log('init');
@@ -52,6 +53,44 @@ var HR = HR || {};
 
         // Replace the YouTube thumbnail with YouTube HTML5 Player
         $(this).append(iframe);
+      });
+
+      window.onpopstate = function (e) {
+        console.log('*****************onpopstate triggered*********************');
+        var thisPage = location.href.split('/')[location.href.split('/').length -1 ];
+        var thisPageName = thisPage.replace('.html','');
+        console.log('popstate - thisPage: ', thisPage);
+        if (thisPage === ""){
+          // thisPage = 'index.html';
+          thisPageName = 'index';
+          // history.pushState({page: 'index'}, null, thisPage);
+          // return;
+        }
+        // ($(this).attr('href')) ? $(this).attr('href') : $(this).attr('xlink:href');
+        // $('[href="'+ thisPage +'"]').trigger('click');
+
+        HR.updatePageName();
+
+        HR.transitionContent(thisPageName);
+      }
+
+
+      $(document).on('click', '.site-nav .list-nav a, .logo', function(e) { 
+        e.preventDefault();
+        console.log('*****************nav click*********************');
+
+        if(typeof History === "function") {
+          console.log('history!');
+
+          var href = ($(this).attr('href')) ? $(this).attr('href') : $(this).attr('xlink:href');
+          var thisPage = href.replace('.html','');
+
+          history.pushState({page: thisPage}, null, href);
+
+          HR.updatePageName();
+
+          HR.transitionContent(thisPage);
+        }
       });
 
 
@@ -120,24 +159,26 @@ var HR = HR || {};
       /**************************************/
       /*   Navigation Content Switch Animation on click
       /***************************************************/
-      $('[data-content]').on('click', function (e) {
-        // e.preventDefault();
-        console.log('clicked nav link');
+      // $('[data-content]').on('click', function (e) {
+      //   // e.preventDefault();
+      //   console.log('clicked nav link');
         
-        // location.hash = $(this).attr('href');
+      //   // location.hash = $(this).attr('href');
         
-      });
+      // });
 
     },
     
     updatePageName: function() {
+        console.log('*****************updatePageName*********************');
+
         var urlPathArr = location.pathname.split('/');
         var urlPageStr = urlPathArr[urlPathArr.length - 1];
         console.log('urlPathArr: ', urlPathArr);
         console.log('urlPageStr: ', urlPageStr);
 
         if(urlPageStr === '' || null){
-          HR.currPageName = 'home';
+          HR.currPageName = 'index';
           console.log('updatePageName - name: ', HR.currPageName);
 
           return;
@@ -224,11 +265,13 @@ var HR = HR || {};
     },
 
     transitionContent: function(page){
+        console.log('*****************transitionContent*********************');
+
         console.log('transitionContent - name: ', HR.currPageName);
         HR.imagesLoaded();
         // if (HR.imagesLoaded && HR.videosLoaded){
         if (HR.imagesLoaded){
-          if(page === 'home'){
+          if(page === 'index'){
             HR.homeAnim();
           }
 
@@ -243,6 +286,22 @@ var HR = HR || {};
           //   opacity: 1
           // },600);
         }
+          
+        $( "#content-holder" ).load( page + ".html .content-container section" );
+
+        $('.loader').animate({
+          'opacity':0
+        },400)
+        .css({
+          'display': 'none'
+        });
+
+        $('#content-holder').animate({
+          opacity: 1
+        },600);
+
+
+        // history.pushState({'pagename: '+page, null, page + '.html'});
     },
     
     prepTransition: function(page){
@@ -291,7 +350,7 @@ var HR = HR || {};
 
     updatePageContent: function () {
         HR.updatePageName();
-        HR.prepTransition(HR.currPageName);
+        // HR.prepTransition(HR.currPageName);
         HR.transitionContent(HR.currPageName);
     },
     
