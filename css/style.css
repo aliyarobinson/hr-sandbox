@@ -450,13 +450,13 @@ img {
   fill: #333;
 }
 
-.home-page .sm-logo polygon {
+.index-page .sm-logo polygon {
   fill: transparent;
   stroke-width: 2;
   stroke: #999;
 }
 
-.home-page .sm-logo polygon:first-child {
+.index-page .sm-logo polygon:first-child {
   fill: transparent;
   stroke-width: 2;
   stroke: #333;
@@ -577,35 +577,34 @@ img {
   Home Styles
 
 *******************************/
-.home-page{}
+.index-page{}
 
-.home-page .content-wrapper,
-.home-page .wrapper,
-.home-page section {
+.index-page .content-wrapper,
+.index-page .wrapper,
+.index-page section {
     height: 100%;
 }
 
-.home-page h1 {
+.index-page h1 {
   max-width: 607px;
 }
-.home-page svg {
+.index-page svg {
   width: 100%;
   height: auto;
 }
-.home-page svg.lg-logo {
+.index-page svg.lg-logo {
   display: block;
-  /*height: calc( 100% - 100px);*/
-  height: 100%;
+  height: 120%;
 }
 
 #logo-path polygon {
   fill: #999;
 }
-.home-page .title {}
-.home-page .title .firstName {
+.index-page .title {}
+.index-page .title .firstName {
   text-transform: uppercase;
 }
-.home-page .title .lastName {
+.index-page .title .lastName {
   text-transform: lowercase;
 }
 
