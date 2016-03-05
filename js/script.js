@@ -289,6 +289,8 @@ var HR = HR || {};
           
         $( "#content-holder" ).load( page + ".html .content-container section" );
 
+        $('body').attr('class', '').addClass(page + '-page');
+
         $('.loader').animate({
           'opacity':0
         },400)
