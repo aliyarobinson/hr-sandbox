@@ -57,9 +57,9 @@ table {
 
 @font-face {
   font-family: 'Stackicons-Social';
-  src: url("fonts/Stackicons/Stackicons-Social.eot");
+  src: url("https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/Stackicons/Stackicons-Social.eot");
   /* IE9 Compat Modes */
-  src: url("fonts/Stackicons/Stackicons-Social.eot?#iefix") format("embedded-opentype"), url("../fonts/Stackicons/Stackicons-Social.woff") format("woff"), url("fonts/Stackicons/Stackicons-Social.ttf") format("truetype"), url("fonts/Stackicons/Stackicons-Social.svg#76cc4077294aa89eeb6c5fa684bb9048") format("svg");
+  src: url("https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/Stackicons/Stackicons-Social.eot?#iefix") format("embedded-opentype"), url("https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/Stackicons/Stackicons-Social.woff") format("woff"), url("https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/Stackicons/Stackicons-Social.ttf") format("truetype"), url("https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/Stackicons/Stackicons-Social.svg#76cc4077294aa89eeb6c5fa684bb9048") format("svg");
   /* Legacy iOS */
   font-style: normal !important;
   font-weight: 400 !important;
@@ -71,12 +71,12 @@ table {
 
 @font-face {
     font-family: 'disco';
-    src: url('../fonts/disco___-webfont.eot');
-    src: url('../fonts/disco___-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/disco___-webfont.woff2') format('woff2'),
-         url('../fonts/disco___-webfont.woff') format('woff'),
-         url('../fonts/disco___-webfont.ttf') format('truetype'),
-         url('../fonts/disco___-webfont.svg#discoregular') format('svg');
+    src: url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/disco___-webfont.eot');
+    src: url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/disco___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/disco___-webfont.woff2') format('woff2'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/disco___-webfont.woff') format('woff'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/disco___-webfont.ttf') format('truetype'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/disco___-webfont.svg#discoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -85,12 +85,12 @@ table {
 
 @font-face {
     font-family: 'lane-narrow';
-    src: url('../fonts/lanenar_-webfont.eot');
-    src: url('../fonts/lanenar_-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lanenar_-webfont.woff2') format('woff2'),
-         url('../fonts/lanenar_-webfont.woff') format('woff'),
-         url('../fonts/lanenar_-webfont.ttf') format('truetype'),
-         url('../fonts/lanenar_-webfont.svg#lane_-_narrowregular') format('svg');
+    src: url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/lanenar_-webfont.eot');
+    src: url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/lanenar_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/lanenar_-webfont.woff2') format('woff2'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/lanenar_-webfont.woff') format('woff'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/lanenar_-webfont.ttf') format('truetype'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/lanenar_-webfont.svg#lane_-_narrowregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -99,12 +99,12 @@ table {
 
 @font-face {
     font-family: 'lane-posh';
-    src: url('../fonts/laneposh-webfont.eot');
-    src: url('../fonts/laneposh-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/laneposh-webfont.woff2') format('woff2'),
-         url('../fonts/laneposh-webfont.woff') format('woff'),
-         url('../fonts/laneposh-webfont.ttf') format('truetype'),
-         url('../fonts/laneposh-webfont.svg#lane_-_poshregular') format('svg');
+    src: url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/laneposh-webfont.eot');
+    src: url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/laneposh-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/laneposh-webfont.woff2') format('woff2'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/laneposh-webfont.woff') format('woff'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/laneposh-webfont.ttf') format('truetype'),
+         url('https://raw.githubusercontent.com/aliyarobinson/hakimrobinson/gh-pages/fonts/laneposh-webfont.svg#lane_-_poshregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -411,7 +411,6 @@ img {
   float: left;
   position: fixed;
   z-index: 2;
-  height: 40px;
 }
 
 .site-nav-btn__bar {
@@ -422,9 +421,6 @@ img {
   display: inherit;
   -webkit-transition: 1s;
   transition: 1s;
-  position: absolute;
-  pointer-events: none;
-
 }
 
 .site-nav-btn__bar:first-child {
@@ -432,24 +428,17 @@ img {
 }
 
 .site-nav-btn.active {
-  /*border-radius: 50%;*/
-  /*border: 1px solid #999;*/
+  border-radius: 50%;
+  border: 1px solid #999;
   height: 40px;
 }
 
 .site-nav-btn.active .site-nav-btn__bar {
-  /*transform: translateY(-3px) rotate(-45deg);*/
-  transform: rotate(-45deg);
-  transform-origin: center center;
-  -webkit-transform-origin: center center;
-  margin-top: 0px;
+  transform: translateY(-3px) rotate(-45deg);
 }
 
 .site-nav-btn.active .site-nav-btn__bar:first-child {
-  /*transform: translateY(3px) rotate(45deg);*/
-  transform: rotate(45deg);
-  /*margin-top: 0px;*/
-
+  transform: translateY(3px) rotate(45deg);
 }
 
 .sm-logo polygon {

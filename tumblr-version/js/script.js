@@ -100,6 +100,8 @@ var HR = HR || {};
             });
         }
       });
+
+
       // $(".video").each(function() {
       //   var vidID = $(this).attr('id');
       //   console.log('youtube id: ', vidID);
@@ -275,25 +277,23 @@ var HR = HR || {};
 
         console.log('transitionContent - name: ', HR.currPageName);
         HR.imagesLoaded();
+
+        var pageStrArr = location.href.split('/');
+        var pageNameStr = pageStrArr[pageStrArr.length - 1];
         // if (HR.imagesLoaded && HR.videosLoaded){
         if (HR.imagesLoaded){
           if(page === 'index'){
             HR.homeAnim();
+          } 
+
+          if(pageNameStr.indexOf('.html') > -1){
+            $( "#content-holder" ).load( page + ".html .content-container section" );
+          } else {
+            $( "#content-holder" ).load( location.href + " .content-container section" );
           }
 
-          // $('.loader').animate({
-          //   'opacity':0
-          // },400)
-          // .css({
-          //   'display': 'none'
-          // });
-
-          // $('#content-holder').animate({
-          //   opacity: 1
-          // },600);
         }
           
-        $( "#content-holder" ).load( page + ".html .content-container section" );
 
         $('body').attr('class', '').addClass(page + '-page');
 
