@@ -38,8 +38,8 @@ var HR = HR || {};
       // HR.createVidArr();
       // HR.createVidPoster();
       // HR.bindVidEvent();
-      HR.addVideoImgs();
-      HR.bindVidEvent();
+      // HR.addVideoImgs();
+      // HR.bindVidEvent();
 
       // $('.video').on('click', function() { console.log('!!!'); });
       $(document).on('click', '.video', function() { 
@@ -100,30 +100,6 @@ var HR = HR || {};
             });
         }
       });
-      // $(".video").each(function() {
-      //   var vidID = $(this).attr('id');
-      //   console.log('youtube id: ', vidID);
-
-      //   // Based on the YouTube ID, we can easily find the thumbnail image
-      //   $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/hqdefault.jpg)');
-    
-      //   // Overlay the Play icon to make it look like a video player
-      //   $(this).append($('<div/>', {'class': 'play'}));
-    
-      //   // $(document).delegate('#'+vidID, 'click', function() {
-      //   $(this).find('.play').on('click', function(e) {
-      //       console.log('video');
-      //       // Create an iFrame with autoplay set to true
-      //       var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
-      //       if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
-    
-      //       // The height and width of the iFrame should be the same as parent
-      //       var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url, 'width': $(this).width(), 'height': $(this).height() })
-    
-      //       // Replace the YouTube thumbnail with YouTube HTML5 Player
-      //       $(this).replaceWith(iframe);
-      //   });
-      // });
         
 
       /**************************************/
@@ -160,19 +136,6 @@ var HR = HR || {};
         }
       }); // end on click .site-nav-btn
 
-
-
-      /**************************************/
-      /*   Navigation Content Switch Animation on click
-      /***************************************************/
-      // $('[data-content]').on('click', function (e) {
-      //   // e.preventDefault();
-      //   console.log('clicked nav link');
-        
-      //   // location.hash = $(this).attr('href');
-        
-      // });
-
     },
     
     updatePageName: function() {
@@ -197,34 +160,10 @@ var HR = HR || {};
     },
 
     imagesLoaded: function() {
-      // test if loaded
-      // var imgs = $('img');
       $('image').load(function() {
         console.log('imagesLoaded');
         return true;
       });
-      // $('image').bind('load', function() {
-      //   console.log('new image loaded: ' + $(this).attr('xlink:href'));
-      // });
-    },
-
-    addVideoImgs: function() {
-        console.log('addVideoImg');
-
-      $('.video').each(function(i){
-        var
-        $this = $(this), vidID = $this.attr('id');
-
-        // HR.vids.push(vidID);
-
-        // $this.append('<img src="http://i.ytimg.com/vi/' + vidID + '/hqdefault.jpg" />');
-        // $this.append('<a href="#" class="play-vid"><span class="icon st-icon-triangle-down st-shape-icon"></span></a>');
-        // $this.on('click', HR.swapImgVid(vidID, $this));
-        // $this.on('click', function(){
-        //   console.log('clicked vid img');
-        //   $this.call($this, swapImgVid(vidID, $this));
-        // });
-      })
     },
 
     bindVidEvent: function() {
@@ -251,13 +190,6 @@ var HR = HR || {};
       context.append(iframe);
     },
 
-    videosLoaded: function() {
-      $('iframe').load(function() {
-        console.log('videosLoaded');
-        return true;
-      });
-    },
-
     createVidArr: function (vids){
       // for each .video, get the data-id and place in the HR.vidArr property
     },
@@ -266,9 +198,9 @@ var HR = HR || {};
       // for each vidArr element append an a tag that goes to the video url and to images inside of the a tag (the postser and the play button(pointer-events: none)
     },
 
-    bindVidEvent: function (vidArr) {
-      // for each vidArr a tag preventDefault, then load iframe video under images, then fade out images, then place images under video or remove images
-    },
+    // bindVidEvent: function (vidArr) {
+    //   // for each vidArr a tag preventDefault, then load iframe video under images, then fade out images, then place images under video or remove images
+    // },
 
     transitionContent: function(page){
         console.log('*****************transitionContent*********************');
