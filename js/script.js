@@ -10,11 +10,18 @@ var HR = HR || {};
     homeState: false,
 
     init: function () {
-        console.log('init');
+      console.log('init');
       HR.updatePageName();
-      // HR.prepTransition();
-      // HR.transitionContent();
-      
+
+      var $loading = $('.loader').hide();
+      $(document)
+        .ajaxStart(function () {
+          $loading.show();
+        })
+        .ajaxStop(function () {
+          $loading.hide();
+        });
+            
 
       /**************************************/
       /*   Handeling Font issues in Windows
@@ -30,18 +37,9 @@ var HR = HR || {};
         $('p').css('font-wieght',800);
       } 
 
-// <iframe width="853" height="480" src="https://www.youtube.com/embed/ebskHpNblZU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
       /**************************************/
-      /*   Preping Videos
+      /*   Video Click image swap
       /***************************************************/
-      // HR.createVidArr();
-      // HR.createVidPoster();
-      // HR.bindVidEvent();
-      // HR.addVideoImgs();
-      // HR.bindVidEvent();
-
-      // $('.video').on('click', function() { console.log('!!!'); });
       $(document).on('click', '.video', function() { 
         console.log('!!!'); 
         var vidID = $(this).attr('id');
@@ -55,26 +53,26 @@ var HR = HR || {};
         $(this).append(iframe);
       });
 
+      /**************************************/
+      /*   History.popstate
+      /***************************************************/
       window.onpopstate = function (e) {
         console.log('*****************onpopstate triggered*********************');
         var thisPage = location.href.split('/')[location.href.split('/').length -1 ];
         var thisPageName = thisPage.replace('.html','');
         console.log('popstate - thisPage: ', thisPage);
         if (thisPage === ""){
-          // thisPage = 'index.html';
           thisPageName = 'index';
-          // history.pushState({page: 'index'}, null, thisPage);
-          // return;
         }
-        // ($(this).attr('href')) ? $(this).attr('href') : $(this).attr('xlink:href');
-        // $('[href="'+ thisPage +'"]').trigger('click');
 
         HR.updatePageName();
 
         HR.transitionContent(thisPageName);
       }
 
-
+      /**************************************/
+      /*   Navigation link click
+      /***************************************************/
       $(document).on('click', '.site-nav .list-nav a, .logo', function(e) { 
         e.preventDefault();
         console.log('*****************nav click*********************');
@@ -93,6 +91,9 @@ var HR = HR || {};
         }
       });
 
+      /**************************************/
+      /*   Remove/Add outline on a/button click
+      /***************************************************/
       $("body").on("mousedown", "*", function(e) {
         if (($(this).is(":focus") || $(this).is(e.target)) && $(this).css("outline-style") == "none") {
             $(this).css("outline", "none").on("blur", function() {
@@ -103,10 +104,16 @@ var HR = HR || {};
         
 
       /**************************************/
-      /*   Binding load and hashchange events
+      /*   Binding load event
       /***************************************************/  
-      window.onhashchange = HR.locationHashChanged;
-      $(window).on('load', HR.updatePageContent );
+      $(window).on('load', function(){
+        // $('.loader').css({
+        //   'display': 'block',
+        //   'opacity': 1
+        // });
+
+        HR.updatePageContent();
+      });
 
 
 
@@ -166,19 +173,6 @@ var HR = HR || {};
       });
     },
 
-    bindVidEvent: function() {
-        console.log('bindVidEvent');
-
-      $('.video').each(function(i){
-        console.log('bindVidEvent video');
-        var 
-        $this = $(this), vidID = $this.attr('id');
-
-        $this.on('click', HR.swapImgVid(vidID, $this));
-
-      });
-    },
-
     swapImgVid: function(vidID, context) {
       console.log('swapImgVid');
       var iframe_url = "https://www.youtube.com/embed/" + vidID + "?autoplay=1&autohide=1";
@@ -190,72 +184,34 @@ var HR = HR || {};
       context.append(iframe);
     },
 
-    createVidArr: function (vids){
-      // for each .video, get the data-id and place in the HR.vidArr property
-    },
-
-    createVidPoster: function (vidArr) {
-      // for each vidArr element append an a tag that goes to the video url and to images inside of the a tag (the postser and the play button(pointer-events: none)
-    },
-
-    // bindVidEvent: function (vidArr) {
-    //   // for each vidArr a tag preventDefault, then load iframe video under images, then fade out images, then place images under video or remove images
-    // },
-
     transitionContent: function(page){
         console.log('*****************transitionContent*********************');
 
         console.log('transitionContent - name: ', HR.currPageName);
-        HR.imagesLoaded();
-        // if (HR.imagesLoaded && HR.videosLoaded){
+        // HR.imagesLoaded();
         if (HR.imagesLoaded){
           if(page === 'index'){
+            // $('.loader').addClass('collapsed');
             HR.homeAnim();
           }
-
-          // $('.loader').animate({
-          //   'opacity':0
-          // },400)
-          // .css({
-          //   'display': 'none'
-          // });
-
-          // $('#content-holder').animate({
-          //   opacity: 1
-          // },600);
         }
           
         $( "#content-holder" ).load( page + ".html .content-container section" );
 
         $('body').attr('class', '').addClass(page + '-page');
 
-        $('.loader').animate({
-          'opacity':0
-        },400)
-        .css({
-          'display': 'none'
-        });
+        // $('.loader').animate({
+        //   'opacity':0
+        // },400)
+        // .css({
+        //   'display': 'none'
+        // });
 
         $('#content-holder').animate({
           opacity: 1
         },600);
-
-
-        // history.pushState({'pagename: '+page, null, page + '.html'});
     },
     
-    prepTransition: function(page){
-        console.log('prepTransition - name: ', HR.currPageName);
-        $('#content-holder').css({
-          'opacity': 0
-        })
-        
-        if (!HR.isEmpty($('#content-holder'))) {
-            $('#content-holder').empty();
-        }
-
-    },
-
     homeAnim: function() {
       /**************************************/
       /*   Home Intro Image Animation
@@ -279,18 +235,9 @@ var HR = HR || {};
         // curr_img.attr('xlink:href', '../intro_imgs/img_'+img_counter+'.jpg' );
       }
     },
-    
-    locationHashChanged: function () {
-        console.log('locationHashChanged');
-        HR.updatePageContent();
-        // HR.updatePageName();
-        // HR.prepTransition(HR.currPageName);
-        // HR.transitionContent(HR.currPageName);
-    },
 
     updatePageContent: function () {
         HR.updatePageName();
-        // HR.prepTransition(HR.currPageName);
         HR.transitionContent(HR.currPageName);
     },
     

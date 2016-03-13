@@ -745,6 +745,14 @@ img {
   top: -50px;
   left: 50%;
   margin-left: -100px;
+  opacity: 1;
+  max-height: 900px;
+  transition: 1s;
+}
+
+.loader.collapsed {
+  opacity: 0;
+  max-height: 0;
 }
 
 .loader .uil-facebook-css {
