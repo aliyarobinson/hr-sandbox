@@ -8,6 +8,7 @@ var HR = HR || {};
 
     currPageName:"",
     homeState: false,
+    clickHandler: ('ontouchstart' in document.documentElement ? "touchstart" : "click"),
 
     init: function () {
       console.log('init');
@@ -40,7 +41,7 @@ var HR = HR || {};
       /**************************************/
       /*   Video Click image swap
       /***************************************************/
-      $(document).on('click touchstart', '.video', function() { 
+      $(document).on( HR.clickHandler, '.video', function() { 
         console.log('!!!'); 
         var vidID = $(this).attr('id');
 
@@ -73,7 +74,7 @@ var HR = HR || {};
       /**************************************/
       /*   Navigation link click
       /***************************************************/
-      $(document).on('click touchstart', '.site-nav .list-nav a, .logo', function(e) { 
+      $(document).on( HR.clickHandler , '.site-nav .list-nav a, .logo', function(e) { 
         e.preventDefault();
         console.log('*****************nav click*********************');
 
@@ -120,7 +121,7 @@ var HR = HR || {};
       /**************************************/
       /*   Site Nav button animation on click
       /***************************************************/
-      $('.site-nav-btn').on('click touchstart', function(){
+      $('.site-nav-btn').on( HR.clickHandler , function(){
         $(this).toggleClass('active');
         if($('.site-nav').hasClass('expanded')){
           $('.site-nav').velocity({
