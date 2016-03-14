@@ -538,7 +538,7 @@ img {
 }
 
 .social-nav {
-  margin: 50px 0;
+  margin: 20px 0;
 }
 
 .social-nav .icon {
@@ -700,8 +700,6 @@ img {
 }
 
 
-
-
 /*******************************
 
   Services Styles
@@ -716,6 +714,39 @@ img {
   font-size: 20px;
   margin: 0 0 10px;
 }
+
+
+/*******************************
+
+  Contact Styles
+
+*******************************/
+
+.contact-page .info {
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-page .info h2 {
+  font-size: 24px;
+  font-weight: bolder;
+  border-bottom: 10px solid #333;
+  margin: 0 0 20px;
+  padding: 0 0 5px;
+}
+
+.contact-page .info li {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+.contact-page .info li a {
+  font-weight: 800;
+}
+
+
+
 
 /*******************************
 
