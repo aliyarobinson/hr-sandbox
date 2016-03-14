@@ -40,7 +40,7 @@ var HR = HR || {};
       /**************************************/
       /*   Video Click image swap
       /***************************************************/
-      $(document).on('click', '.video', function() { 
+      $(document).on('click touchstart', '.video', function() { 
         console.log('!!!'); 
         var vidID = $(this).attr('id');
 
@@ -73,7 +73,7 @@ var HR = HR || {};
       /**************************************/
       /*   Navigation link click
       /***************************************************/
-      $(document).on('click', '.site-nav .list-nav a, .logo', function(e) { 
+      $(document).on('click touchstart', '.site-nav .list-nav a, .logo', function(e) { 
         e.preventDefault();
         console.log('*****************nav click*********************');
 
@@ -120,7 +120,7 @@ var HR = HR || {};
       /**************************************/
       /*   Site Nav button animation on click
       /***************************************************/
-      $('.site-nav-btn').on('click', function(){
+      $('.site-nav-btn').on('click touchstart', function(){
         $(this).toggleClass('active');
         if($('.site-nav').hasClass('expanded')){
           $('.site-nav').velocity({
