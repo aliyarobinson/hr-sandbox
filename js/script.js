@@ -45,10 +45,10 @@ var HR = HR || {};
         console.log('!!!'); 
         var vidID = $(this).attr('id');
 
-        var iframe_url = "https://www.youtube.com/embed/" + vidID + "?autoplay=1&autohide=1";
+        var iframe_url = "https://www.youtube.com/embed/" + vidID + "?rel=0&autoplay=1&autohide=1&showinfo=0";
     
         // The height and width of the iFrame should be the same as parent
-        var iframe = $('<iframe/>', {'frameborder': '0', 'src': iframe_url })
+        var iframe = $('<iframe/>', {'frameborder': '0', 'allowfullscreen': '', 'src': iframe_url });
 
         // Replace the YouTube thumbnail with YouTube HTML5 Player
         $(this).append(iframe);
