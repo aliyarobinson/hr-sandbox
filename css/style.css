@@ -1151,3 +1151,9 @@ margin-right: 40px;
     font-size: 18px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .title-item {
+    margin-right: 4.5%;
+  }
+}
