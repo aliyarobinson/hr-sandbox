@@ -605,7 +605,7 @@ img {
 }
 .index-page svg.lg-logo {
   display: block;
-  height: 120%;
+  height: 100%;
 }
 
 #logo-path polygon {
