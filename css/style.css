@@ -628,6 +628,21 @@ img {
 .st6{font-size:20px;}
 .st7{letter-spacing:4px;}
 
+.name.first {
+  font: 160px 'DISCO', arial, sans-serif;
+  text-transform: uppercase;
+  text-align: justify;
+  margin: 0 0 0 -30px;
+}
+
+.name.last {
+  font: 100px 'DISCO', arial, sans-serif;
+  text-transform: lowercase;
+  text-align: justify;
+  margin: 0px 0 0 -14px;
+  letter-spacing: 15px;
+}
+
 
 
 /*******************************
