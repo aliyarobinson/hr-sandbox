@@ -78,7 +78,8 @@ var HR = HR || {};
         e.preventDefault();
         console.log('*****************nav click*********************');
 
-        if(typeof History === "function") {
+        // if(typeof History === "function") {
+        if( History ) {
           console.log('history!');
 
           var href = ($(this).attr('href')) ? $(this).attr('href') : $(this).attr('xlink:href');
