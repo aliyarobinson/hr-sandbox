@@ -1152,7 +1152,7 @@ margin-right: 40px;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
   .title-item {
     margin-right: 4.5%;
   }
