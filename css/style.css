@@ -639,9 +639,51 @@ img {
   font: 100px 'DISCO', arial, sans-serif;
   text-transform: lowercase;
   text-align: justify;
-  margin: 0px 0 0 -14px;
+  margin: -24px 0 0 -14px;
   letter-spacing: 15px;
 }
+
+.titles {
+  position: relative;
+  left: 0;
+  text-align: center;
+}
+
+.title-item {
+font: 20px 'DISCO', arial, sans-serif;
+text-transform: lowercase;
+/* position: absolute; */
+position: relative;
+color: #000;
+bottom: 0px;
+/* float: left; */
+/* left: 50%; */
+margin-right: 40px;
+}
+
+.title-item:last-of-type {
+  margin: 0;
+}
+
+/*.title-item:nth-of-type(1) {
+  left: 0;
+}
+
+.title-item:nth-of-type(2) {
+  left:50%;
+}
+
+.title-item:nth-of-type(3) {
+  left:100%;
+}*/
+
+/*.title-item:first-child {
+  left: 0;
+}
+
+.title-item:last-child {
+  right: 0;
+}*/
 
 
 
@@ -1096,6 +1138,12 @@ img {
   width: 100%;
   max-width: 70px;
   font-family: 'DISCO', arial;
+}
+
+.title-item {
+    font: 16px 'DISCO', arial, sans-serif;
+    bottom: 10px;
+    margin-right: 6%;
 }
 
 
