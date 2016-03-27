@@ -463,13 +463,13 @@ img {
 
 .index-page .sm-logo polygon {
   fill: transparent;
-  stroke-width: 2;
+  stroke-width: 10;
   stroke: #999;
 }
 
 .index-page .sm-logo polygon:first-child {
   fill: transparent;
-  stroke-width: 2;
+  stroke-width: 10;
   stroke: #333;
 }
 
@@ -1154,6 +1154,7 @@ margin-right: 40px;
 
 @media screen and (max-width: 500px) {
   .title-item {
-    margin-right: 4.5%;
+    margin-right: 4%;
+    font-size: 14px;
   }
 }
