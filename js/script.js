@@ -48,11 +48,46 @@ var HR = HR || {};
         }
       }
     },
+    pageLocation: {
+        observers: [],
+        registerObserver: function(observer){
+          this.observers.push(observer);
+        },
+        notifyObservers: function(page){
+          var thisPage = page;
+          for(var i = 0; i < this.observers.length; i++) {
+            this.observers[i].notify(thisPage);
+          }
+        }
+    },
+    pageState: {
+      notify: function(page) {
+        console.log('pageContent notified - page: ', page);
+        HR.pageState[page]();
+      },
+      home: function() {
+        console.log('home state notified')
+      },
+      bio: function() {
+        console.log('bio state notified')
+      },
+      works: function() {
+        console.log('works state notified')
+      },
+      services: function() {
+        console.log('services state notified')
+      },
+      contact: function() {
+        console.log('contact state notified')
+      }
+
+    },
 
     init: function () {
       console.log('init');
 
       HR.menuBtn.registerObserver(HR.sideNav);
+      HR.pageLocation.registerObserver(HR.pageState);
 
       // HR.updatePageName();
 
@@ -71,16 +106,18 @@ var HR = HR || {};
       /*   Video Click image swap
       /***************************************************/
       $(document).on( HR.clickHandler, '.video', function() { 
-        console.log('!!!'); 
+        console.log('video !!!'); 
       });
 
       /**************************************/
       /*   History.popstate
       /***************************************************/
-      window.onpopstate = function (e) {
-        console.log('*****************onpopstate triggered*********************');
+      window.onload = window.onpopstate = function (e) {
+        console.log('*****************onpopstate/onload triggered*********************');
         var thisPage = location.href.split('/')[location.href.split('/').length -1 ];
         var thisPageName = thisPage.replace('.html','');
+        console.log('thisPageName: ', thisPageName); 
+        HR.pageLocation.notifyObservers(thisPageName);
       }
 
       /**************************************/
@@ -95,6 +132,8 @@ var HR = HR || {};
 
           var href = ($(this).attr('href')) ? $(this).attr('href') : $(this).attr('xlink:href');
           var thisPage = href.replace('.html','');
+          console.log('nav click - thisPage: ', thisPage); 
+
         }
       });
 
@@ -113,9 +152,9 @@ var HR = HR || {};
       /**************************************/
       /*   Binding load event
       /***************************************************/  
-      $(window).on('load', function(){
+      // $(window).on('load', function(){
 
-      });
+      // });
 
 
 
