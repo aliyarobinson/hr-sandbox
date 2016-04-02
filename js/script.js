@@ -4,15 +4,57 @@ var HR = HR || {};
 
 (function($){
 
+
   HR = {
 
     currPageName:"",
     homeState: false,
     clickHandler: ('ontouchstart' in document.documentElement ? "touchstart" : "click"),
+    menuBtn: {
+        observers: [],
+        registerObserver: function(observer){
+          this.observers.push(observer);
+        },
+        notifyObservers: function(){
+          for(var i = 0; i < this.observers.length; i++) {
+            this.observers[i].notify();
+          }
+        }
+    },
+    sideNav: {
+      notify: function() {
+        console.log('site nav notified');
+
+        $('.site-nav-btn').toggleClass('active');
+
+        if($('.site-nav').hasClass('expanded')){
+          $('.site-nav').velocity({
+            'margin-left': '-320px'
+          },600);
+          $('.site-nav-bkgd').velocity({
+            'left': '-150%',
+            'opacity': 0
+          },600);
+          $('.site-nav').removeClass('expanded');
+        } else {
+          $('.site-nav').velocity({
+            'margin-left':0
+          },600);
+          $('.site-nav-bkgd').velocity({
+            'left': '-50%',
+            'opacity': 1
+          },600);
+          $('.site-nav').addClass('expanded');
+        }
+      }
+    },
 
     init: function () {
       console.log('init');
-      HR.updatePageName();
+
+      HR.menuBtn.registerObserver(HR.sideNav);
+
+      // HR.updatePageName();
 
       var $loading = $('.loader').hide();
       $(document)
@@ -81,7 +123,9 @@ var HR = HR || {};
       /*   Site Nav button animation on click
       /***************************************************/
       $('.site-nav-btn').on( HR.clickHandler , function(){
-        $(this).toggleClass('active');
+        console.log('nav menu btn clicked - ', HR.clickHandler);
+        // $(this).toggleClass('active');
+        HR.menuBtn.notifyObservers();
         
       }); // end on click .site-nav-btn
 
