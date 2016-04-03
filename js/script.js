@@ -6,10 +6,37 @@ var HR = HR || {};
 
 
   HR = {
-
     currPageName:"",
     homeState: false,
     clickHandler: ('ontouchstart' in document.documentElement ? "touchstart" : "click"),
+    isHome: function( page ){
+      if(page === '' || page === null || page === 'index'){
+        return true;
+      }
+    },
+    homeAnim: function() {
+      /**************************************/
+      /*   Home Intro Image Animation
+      /***************************************************/
+      var img_counter = 6;
+      var curr_img = $('.lg-logo image');
+      var imgInterval = setInterval(function(){ 
+        animateImgs();
+        if (img_counter === 0){
+          clearInterval(imgInterval);
+        }
+      }, 600);
+
+      function animateImgs(){
+        img_counter--;
+        console.log("counter: ", img_counter); 
+        $img = $('.lg-logo image');
+        $img.eq(img_counter).animate({
+          'opacity':0
+        },300);
+        // curr_img.attr('xlink:href', '../intro_imgs/img_'+img_counter+'.jpg' );
+      }
+    },
     menuBtn: {
         observers: [],
         registerObserver: function(observer){
@@ -62,27 +89,60 @@ var HR = HR || {};
     },
     pageState: {
       notify: function(page) {
+        console.log('page nofify - ishome: ', HR.isHome(page));
+        if(HR.isHome(page)){
+          page = 'home';
+        }
         console.log('pageContent notified - page: ', page);
         HR.pageState[page]();
       },
       home: function() {
-        console.log('home state notified')
+        console.log('home state notified');
+        document.querySelector('body').classList.add('home-page');
+        HR.transitionContent('index');
+        HR.homeAnim();
       },
       bio: function() {
-        console.log('bio state notified')
+        console.log('bio state notified');
+        document.querySelector('body').classList.add('bio-page');
+        HR.transitionContent('bio');
       },
       works: function() {
-        console.log('works state notified')
+        console.log('works state notified');
+        document.querySelector('body').classList.add('works-page');
+        HR.transitionContent('works');
       },
       services: function() {
-        console.log('services state notified')
+        console.log('services state notified');
+        document.querySelector('body').classList.add('services-page');
+        HR.transitionContent('services');
       },
       contact: function() {
-        console.log('contact state notified')
+        console.log('contact state notified');
+        document.querySelector('body').classList.add('contact-page');
+        HR.transitionContent('contact');
       }
-
     },
+    transitionContent: function(page){
+        console.log('*****************transitionContent*********************');
 
+        console.log('transitionContent - name: ', HR.currPageName);
+        // HR.imagesLoaded();
+        // if (HR.imagesLoaded){
+        //   if(page === 'index'){
+        //     // $('.loader').addClass('collapsed');
+        //     HR.homeAnim();
+        //   }
+        // }
+          
+        $( "#content-holder" ).load( page + ".html .content-container section" );
+
+        // $('body').attr('class', '').addClass(page + '-page');
+
+        // $('#content-holder').animate({
+        //   opacity: 1
+        // },600);
+    },
     init: function () {
       console.log('init');
 
@@ -132,7 +192,12 @@ var HR = HR || {};
 
           var href = ($(this).attr('href')) ? $(this).attr('href') : $(this).attr('xlink:href');
           var thisPage = href.replace('.html','');
+          if(HR.isHome(thisPage)){
+            thisPage = 'home';
+          }
           console.log('nav click - thisPage: ', thisPage); 
+          history.pushState(null, null, href);
+          HR.pageState[thisPage]();
 
         }
       });
@@ -167,10 +232,7 @@ var HR = HR || {};
         HR.menuBtn.notifyObservers();
         
       }); // end on click .site-nav-btn
-
-    },
-    
-
+    }
   };
 })(jQuery); // end SEF
 

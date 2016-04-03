@@ -569,6 +569,11 @@ img {
 
 #content-holder {
   height: 100%;
+  opacity: 1;
+  transition: 600ms;
+}
+
+#content-holder.fade-out {
   opacity: 0;
 }
 
