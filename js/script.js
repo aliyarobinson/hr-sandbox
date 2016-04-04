@@ -8,6 +8,9 @@ var HR = HR || {};
   HR = {
     currPageName:"",
     homeState: false,
+    pageAreaElem: $('html'),
+    sideNavElem: $('.site-nav'),
+    siteNavBtnElem: $('.site-nav-btn'), 
     clickHandler: ('ontouchstart' in document.documentElement ? "touchstart" : "click"),
     isHome: function( page ){
       if(page === '' || page === null || page === 'index'){
@@ -73,19 +76,55 @@ var HR = HR || {};
           },600);
           $('.site-nav').addClass('expanded');
         }
+      },
+      pageAreaNotify: function(dir){
+        console.log('pageAreaNotify - dir:', dir);
+        if(dir === -1){
+          console.log('dir false');
+          HR.sideNav['slideOut']();
+        }else{
+          console.log('dir not false');
+        }
+      },
+      slideOut: function() {
+        console.log('slide out');
+        $('.site-nav-btn').removeClass('active');
+
+        $('.site-nav').velocity({
+            'margin-left': '-320px'
+          },600);
+          $('.site-nav-bkgd').velocity({
+            'left': '-150%',
+            'opacity': 0
+          },600);
+        $('.site-nav').removeClass('expanded');
+      },
+      slideIn: function() {
+        console.log('slide in');
+      }
+    },
+    pageArea: {
+      observers: [],
+      registerObserver: function(observer){
+        this.observers.push(observer);
+      },
+      notifyObservers: function(dir){
+        for(var i = 0; i < this.observers.length; i++) {
+          this.observers[i].pageAreaNotify(dir);
+        }
       }
     },
     pageLocation: {
-        observers: [],
-        registerObserver: function(observer){
-          this.observers.push(observer);
-        },
-        notifyObservers: function(page){
-          var thisPage = page;
-          for(var i = 0; i < this.observers.length; i++) {
-            this.observers[i].notify(thisPage);
-          }
+      observers: [],
+      registerObserver: function(observer){
+        this.observers.push(observer);
+      },
+      notifyObservers: function(page){
+        var thisPage = page;
+        for(var i = 0; i < this.observers.length; i++) {
+          this.observers[i].notify(thisPage);
         }
+      }
     },
     pageState: {
       notify: function(page) {
@@ -148,8 +187,7 @@ var HR = HR || {};
 
       HR.menuBtn.registerObserver(HR.sideNav);
       HR.pageLocation.registerObserver(HR.pageState);
-
-      // HR.updatePageName();
+      HR.pageArea.registerObserver(HR.sideNav);
 
       var $loading = $('.loader').hide();
       $(document)
@@ -201,6 +239,34 @@ var HR = HR || {};
 
         }
       });
+
+
+      $('html').on('click', function(e) {
+        console.log('html click'); 
+        var dir;
+
+        if(HR.sideNavElem.hasClass('expanded')){
+          dir = -1;
+        }else {
+          dir = 1;
+        }
+        console.log('dir: ',dir); 
+        HR.pageArea.notifyObservers(dir);
+
+
+        // HR.sideNavElem.removeClass('expanded');
+        // HR.siteNavBtnElem.removeClass('active');
+      });
+
+      HR.sideNavElem.on('click', function(e) {
+        e.stopPropagation();
+      });
+
+      HR.siteNavBtnElem.on('click', function(e) {
+        e.stopPropagation();
+      });
+
+
 
       /**************************************/
       /*   Remove/Add outline on a/button click
