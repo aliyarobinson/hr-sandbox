@@ -54,27 +54,10 @@ var HR = HR || {};
     sideNav: {
       notify: function() {
         console.log('site nav notified');
-
-        $('.site-nav-btn').toggleClass('active');
-
         if($('.site-nav').hasClass('expanded')){
-          $('.site-nav').velocity({
-            'margin-left': '-320px'
-          },600);
-          $('.site-nav-bkgd').velocity({
-            'left': '-150%',
-            'opacity': 0
-          },600);
-          $('.site-nav').removeClass('expanded');
+          HR.sideNav['slideOut']();
         } else {
-          $('.site-nav').velocity({
-            'margin-left':0
-          },600);
-          $('.site-nav-bkgd').velocity({
-            'left': '-50%',
-            'opacity': 1
-          },600);
-          $('.site-nav').addClass('expanded');
+          HR.sideNav['slideIn']();
         }
       },
       pageAreaNotify: function(dir){
@@ -101,6 +84,16 @@ var HR = HR || {};
       },
       slideIn: function() {
         console.log('slide in');
+        $('.site-nav-btn').addClass('active');
+
+        $('.site-nav').velocity({
+            'margin-left':0
+          },600);
+          $('.site-nav-bkgd').velocity({
+            'left': '-50%',
+            'opacity': 1
+          },600);
+        $('.site-nav').addClass('expanded');
       }
     },
     pageArea: {
