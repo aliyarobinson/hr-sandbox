@@ -72,6 +72,7 @@ var HR = HR || {};
       slideOut: function() {
         console.log('slide out');
         $('.site-nav-btn').removeClass('active');
+        $('#content-holder a').css({'pointer-events':'auto'});
 
         $('.site-nav').velocity({
             'margin-left': '-320px'
@@ -85,6 +86,7 @@ var HR = HR || {};
       slideIn: function() {
         console.log('slide in');
         $('.site-nav-btn').addClass('active');
+        $('#content-holder a').css({'pointer-events':'none'});
 
         $('.site-nav').velocity({
             'margin-left':0
@@ -245,10 +247,6 @@ var HR = HR || {};
         }
         console.log('dir: ',dir); 
         HR.pageArea.notifyObservers(dir);
-
-
-        // HR.sideNavElem.removeClass('expanded');
-        // HR.siteNavBtnElem.removeClass('active');
       });
 
       HR.sideNavElem.on('click', function(e) {
@@ -271,25 +269,13 @@ var HR = HR || {};
             });
         }
       });
-        
-
-      /**************************************/
-      /*   Binding load event
-      /***************************************************/  
-      // $(window).on('load', function(){
-
-      // });
-
-
 
       /**************************************/
       /*   Site Nav button animation on click
       /***************************************************/
       $('.site-nav-btn').on( HR.clickHandler , function(){
         console.log('nav menu btn clicked - ', HR.clickHandler);
-        // $(this).toggleClass('active');
         HR.menuBtn.notifyObservers();
-        
       }); // end on click .site-nav-btn
     }
   };
