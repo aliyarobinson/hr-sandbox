@@ -11,6 +11,7 @@ var HR = HR || {};
     pageAreaElem: $('html'),
     sideNavElem: $('.site-nav'),
     siteNavBtnElem: $('.site-nav-btn'), 
+    siteNavLinkElem: $('.list-nav a'), 
     clickHandler: ('ontouchstart' in document.documentElement ? "touchstart" : "click"),
     isHome: function( page ){
       if(page === '' || page === null || page === 'index'){
@@ -73,6 +74,10 @@ var HR = HR || {};
         console.log('slide out');
         $('.site-nav-btn').removeClass('active');
         $('#content-holder a').css({'pointer-events':'auto'});
+        $('.site-nav-bkgd').css({'z-index':20});
+        $('.site-header').css({'z-index':20});
+        $('.list-nav').css({'z-index':20});
+        $('.list-nav li a').css({'z-index':20});
 
         $('.site-nav').velocity({
             'margin-left': '-320px'
@@ -218,6 +223,8 @@ var HR = HR || {};
       /***************************************************/
       $(document).on( HR.clickHandler , '.site-nav .list-nav a, .logo', function(e) { 
         e.preventDefault();
+        // e.stopPropagation();
+        e.stopImmediatePropagation();
         console.log('*****************nav click*********************');
 
         if( History ) {
@@ -234,28 +241,53 @@ var HR = HR || {};
 
         }
       });
+      
 
 
-      $('html').on('click', function(e) {
-        console.log('html click'); 
-        var dir;
+      /**************************************/
+      /*   Video Click image swap
+      /***************************************************/
+      $(document).on( HR.clickHandler, '.video', function() { 
+        console.log('!!!'); 
+        var vidID = $(this).attr('id');
 
-        if(HR.sideNavElem.hasClass('expanded')){
-          dir = -1;
-        }else {
-          dir = 1;
-        }
-        console.log('dir: ',dir); 
-        HR.pageArea.notifyObservers(dir);
+        var iframe_url = "https://www.youtube.com/embed/" + vidID + "?rel=0&autoplay=1&autohide=1&showinfo=0";
+    
+        // The height and width of the iFrame should be the same as parent
+        var iframe = $('<iframe/>', {'frameborder': '0', 'allowfullscreen': '', 'src': iframe_url });
+
+        // Replace the YouTube thumbnail with YouTube HTML5 Player
+        $(this).append(iframe);
       });
 
-      HR.sideNavElem.on('click', function(e) {
-        e.stopPropagation();
-      });
+      // $('.content-wrapper .wrapper *').not(".site-nav").on('click', function(e) {
+      //   console.log('html click'); 
+      //   var dir;
 
-      HR.siteNavBtnElem.on('click', function(e) {
-        e.stopPropagation();
-      });
+      //   if(HR.sideNavElem.hasClass('expanded')){
+      //     dir = -1;
+      //   }else {
+      //     dir = 1;
+      //   }
+      //   console.log('dir: ',dir); 
+      //   HR.pageArea.notifyObservers(dir);
+      // });
+
+      // HR.sideNavElem.on('click', function(e) {
+      //   e.stopPropagation();
+      // });
+
+      // HR.siteNavLinkElem.on('click', function(e) {
+      //   console.log('nav btn click - target: ', e.target);
+      //   console.log('nav btn click - current target: ', e.currentTarget);
+      //   // e.stopPropagation();
+      // });
+
+      // HR.siteNavBtnElem.on('click', function(e) {
+      //   console.log('menu btn click - target: ', e.target);
+      //   console.log('menu btn click - current target: ', e.currentTarget);
+      //   e.stopPropagation();
+      // });
 
 
 
