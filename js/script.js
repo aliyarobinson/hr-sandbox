@@ -197,6 +197,13 @@ var HR = HR || {};
         .ajaxStop(function () {
           $loading.hide();
         });
+
+        // $( "a" ).keydown(function() {
+        //   $(this).css({'outline':'solid'});
+        // })
+        // .mousedown(function() {
+        //   $(this).css({'outline':'none'});
+        // });
             
 
       
