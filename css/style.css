@@ -382,6 +382,7 @@ img {
 .site-header {
   height: 90px;
   position: fixed;
+  top: 0;
   margin: 20px 0;
   width: 100%;
   z-index: 2;
@@ -547,7 +548,8 @@ img {
 }
 
 .content-wrapper {
-  padding: 120px 0 0;
+  /*padding: 120px 0 0;*/
+  margin: 120px 0 0;
   /*position: relative;
   left: -320px;
   overflow: hidden;*/
