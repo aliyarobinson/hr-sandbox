@@ -23,7 +23,7 @@ var HR = HR || {};
       /*   Home Intro Image Animation
       /***************************************************/
       var img_counter = 6;
-      var curr_img = $('.lg-logo image');
+      var curr_img = $('.lg-logo image.show-item');
       var imgInterval = setInterval(function(){ 
         animateImgs();
         if (img_counter === 0){
