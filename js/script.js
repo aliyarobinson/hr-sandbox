@@ -254,7 +254,8 @@ var HR = HR || {};
       /**************************************/
       /*   Video Click image swap
       /***************************************************/
-      $(document).on( HR.clickHandler, '.video', function() { 
+      $(document).on( HR.clickHandler, '.video', function(e) { 
+        e.preventDefault();
         console.log('!!!'); 
         var vidID = $(this).attr('id');
 

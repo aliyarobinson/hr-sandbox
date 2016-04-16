@@ -1,0 +1,7 @@
+imgs= [
+	{"img": "../img/intro_imgs/img_1.jpg"},
+	{"img": "../img/intro_imgs/img_2.jpg"},
+	{"img": "../img/intro_imgs/img_3.jpg"},
+	{"img": "../img/intro_imgs/img_4.jpg"},
+	{"img": "../img/intro_imgs/img_5.jpg"}
+]

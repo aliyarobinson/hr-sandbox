@@ -8,7 +8,8 @@
   <link rel="icon" type="image/png" href="img/favicon.png" />
 </head>
 <body class="home-page">
-  <div class="site-nav-bkgd">
+  <div id="skip"><a href="#main-content">Skip to Main Content</a></div>
+  <div class="site-nav-bkgd" aria-hidden="true">
     <svg x="0px" y="0px" viewBox="0 0 612 434" preserveAspectRatio="xMaxYMax meet">
       <defs>
         <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -19,6 +20,7 @@
       <polygon points="190,0 382.8,0 195.2,434 2,434 " fill="url(#grad1)"/>
     </svg>
   </div>
+  <div class="full-screen-ad"></div>
   <header class="site-header" role="banner">
     <div class="wrapper">
       <button class="site-nav-btn hide-copy">
@@ -26,6 +28,10 @@
         <span class="site-nav-btn__bar"></span>
         <span class="site-nav-btn__bar"></span>
       </button>
+      
+      <!-- <div class="banner-ad">
+        A Family On Edge
+      </div> -->
       <h1 class="logo-wrapper">
         <span class="hide-copy">
           Hakim Robinson
@@ -60,7 +66,10 @@
           <span class="copyright">&copy; copyright 2016. All Rights Reserved. Hakim Robinson.</span>
         </div>
       </nav>
-      <main class="main-content" role="main">
+      <main class="main-content" id="main-content" role="main">
+        <div class="banner-ad">
+          <img src="img/family-edge-banner-468-60.jpg" alt="A Family On Edge">
+        </div>
         <div id="content-holder">
           <div class="wrapper">
             <section>
@@ -80,14 +89,14 @@
         </div>
         <div class="loader">
           <!-- <div class='uil-facebook-css' style='-webkit-transform:scale(0.99)'><div></div><div></div><div></div></div> -->
-          <div class="bubblingG">
+          <!-- <div class="bubblingG">
             <span id="bubblingG_1">
             </span>
             <span id="bubblingG_2">
             </span>
             <span id="bubblingG_3">
             </span>
-          </div>
+          </div> -->
         </div>
         <div class="wrapper">
           <div id="home" class="content-container home">
@@ -104,7 +113,7 @@
                   .st6{font-family:'lane-narrow';}
                   .st7{font-size:28px; font-weight: 100;}
                   .st8{letter-spacing:5;}
-                  .position-title{ color: red; font-size: 2em; letter-spacing: 3px; display: block; margin: 0 0 20px;}
+                  .position-title{ color: #999; font-size: 2em; letter-spacing: 3px; display: block; margin: 0 0 20px;}
                   .position-title.producer{ margin-left: -41px; }
                   .position-title.consultant{ margin-left: -64px; }
                 </style>
@@ -148,8 +157,9 @@
       </main>
     </div>
   </div>
+  <div class="img-grid"></div>
 
-  <svg>
+  <svg id="svg-defs">
     <defs>
       <g id="hr-logo">
         <polygon points="190,0 382,0 195,434 2,434 "/>
