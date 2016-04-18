@@ -18,9 +18,9 @@ var HR = HR || {};
         return true;
       }
     },
-    
+
     imagesLoaded: function() {
-      $('image').load(function() {
+      $('image, img').load(function() {
         console.log('imagesLoaded');
         return true;
       });
@@ -147,7 +147,10 @@ var HR = HR || {};
         console.log('home state notified');
         document.querySelector('body').classList.add('home-page');
         HR.transitionContent('index');
-        HR.homeAnim();
+        if (HR.imagesLoaded){
+          HR.homeAnim();
+        }
+        // HR.homeAnim();
       },
       bio: function() {
         console.log('bio state notified');
@@ -181,6 +184,7 @@ var HR = HR || {};
         //     HR.homeAnim();
         //   }
         // }
+        // 
           
         $( "#content-holder .wrapper" ).load( page + ".html .content-container section" );
 
