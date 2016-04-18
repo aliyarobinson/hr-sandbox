@@ -18,6 +18,14 @@ var HR = HR || {};
         return true;
       }
     },
+    
+    imagesLoaded: function() {
+      $('image').load(function() {
+        console.log('imagesLoaded');
+        return true;
+      });
+    },
+
     homeAnim: function() {
       /**************************************/
       /*   Home Intro Image Animation
@@ -174,9 +182,9 @@ var HR = HR || {};
         //   }
         // }
           
-        $( "#content-holder" ).load( page + ".html .content-container section" );
+        $( "#content-holder .wrapper" ).load( page + ".html .content-container section" );
 
-        // $('body').attr('class', '').addClass(page + '-page');
+        $('body').attr('class', '').addClass(page + '-page');
 
         // $('#content-holder').animate({
         //   opacity: 1
