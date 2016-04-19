@@ -1,0 +1,116 @@
+/*
+
+  Fonts
+
+*/
+
+@font-face {
+  font-family: 'Stackicons-Social';
+  src: url("fonts/Stackicons/Stackicons-Social.eot");
+  /* IE9 Compat Modes */
+  src: url("fonts/Stackicons/Stackicons-Social.eot?#iefix") format("embedded-opentype"), url("../fonts/Stackicons/Stackicons-Social.woff") format("woff"), url("fonts/Stackicons/Stackicons-Social.ttf") format("truetype"), url("fonts/Stackicons/Stackicons-Social.svg#76cc4077294aa89eeb6c5fa684bb9048") format("svg");
+  /* Legacy iOS */
+  font-style: normal !important;
+  font-weight: 400 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  speak: none;
+}
+
+@font-face {
+    font-family: 'disco';
+    src: url('../fonts/disco___-webfont.eot');
+    src: url('../fonts/disco___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/disco___-webfont.woff2') format('woff2'),
+         url('../fonts/disco___-webfont.woff') format('woff'),
+         url('../fonts/disco___-webfont.ttf') format('truetype'),
+         url('../fonts/disco___-webfont.svg#discoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'lane-narrow';
+    src: url('../fonts/lanenar_-webfont.eot');
+    src: url('../fonts/lanenar_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lanenar_-webfont.woff2') format('woff2'),
+         url('../fonts/lanenar_-webfont.woff') format('woff'),
+         url('../fonts/lanenar_-webfont.ttf') format('truetype'),
+         url('../fonts/lanenar_-webfont.svg#lane_-_narrowregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'lane-posh';
+    src: url('../fonts/laneposh-webfont.eot');
+    src: url('../fonts/laneposh-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/laneposh-webfont.woff2') format('woff2'),
+         url('../fonts/laneposh-webfont.woff') format('woff'),
+         url('../fonts/laneposh-webfont.ttf') format('truetype'),
+         url('../fonts/laneposh-webfont.svg#lane_-_poshregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'lane-upper';
+    src: url('../fonts/laneup__-webfont.eot');
+    src: url('../fonts/laneup__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/laneup__-webfont.woff2') format('woff2'),
+         url('../fonts/laneup__-webfont.woff') format('woff'),
+         url('../fonts/laneup__-webfont.ttf') format('truetype'),
+         url('../fonts/laneup__-webfont.svg#lane_-_upperregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'stackicons';
+    src: url('../fonts/Stackicons/Stackicons-Social.eot');
+    src: url('../fonts/Stackicons/Stackicons-Social.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Stackicons/Stackicons-Social.woff') format('woff'),
+         url('../fonts/Stackicons/Stackicons-Social.ttf') format('truetype'),
+         url('../fonts/Stackicons/Stackicons-Social.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+      font-family: 'lane-narrow';
+      src: url('../fonts/lanenar_-webfont.svg#lane_-_narrowregular') format('svg');
+  }
+  p {
+    font-weight: 800;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'disco';
+}
+
+strong {
+  font-weight: bold;
+  font-size: 22px;
+  color: #000;
+}
+
+p {
+  margin: 20px 0;
+  line-height: 28px;
+  letter-spacing: 0.26px;
+  font-size: 18px;
+}
+
+p:first-child {
+  margin-top: 0;
+}
