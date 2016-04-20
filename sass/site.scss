@@ -377,8 +377,8 @@ img {
   // margin-top: 5px;
   margin: 5px 0 0;
   display: block;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: 400ms;
+  transition: 400ms;
   // position: absolute;
   position: relative;
   pointer-events: none;
@@ -400,7 +400,7 @@ img {
   transform: rotate(-45deg);
   transform-origin: center center;
   -webkit-transform-origin: center center;
-  margin-top: 0px;
+  margin-top: -2px;
 }
 
 .site-nav-btn.active .site-nav-btn__bar:first-child {
