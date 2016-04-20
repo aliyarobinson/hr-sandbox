@@ -558,7 +558,46 @@ img {
 .site-nav.expanded .list-nav li.i04 {
   animation: fade-in-item 400ms .5s ease-out forwards; }
 
+@-ms-keyframes fade-in-item {
+  0% {
+    margin-left: -100px;
+    opacity: 0; }
+  30% {
+    margin-left: -80px;
+    opacity: .5; }
+  60% {
+    margin-left: -40px;
+    opacity: .8; }
+  100% {
+    margin-left: 0px;
+    opacity: 1; } }
+@-mos-keyframes fade-in-item {
+  0% {
+    margin-left: -100px;
+    opacity: 0; }
+  30% {
+    margin-left: -80px;
+    opacity: .5; }
+  60% {
+    margin-left: -40px;
+    opacity: .8; }
+  100% {
+    margin-left: 0px;
+    opacity: 1; } }
 @-webkit-keyframes fade-in-item {
+  0% {
+    margin-left: -100px;
+    opacity: 0; }
+  30% {
+    margin-left: -80px;
+    opacity: .5; }
+  60% {
+    margin-left: -40px;
+    opacity: .8; }
+  100% {
+    margin-left: 0px;
+    opacity: 1; } }
+@keyframes fade-in-item {
   0% {
     margin-left: -100px;
     opacity: 0; }
@@ -670,6 +709,16 @@ img {
   height: 100%;
   transition: 400ms;
   /*height: auto;*/ }
+  .index-page svg.lg-logo .position-title {
+    font-size: 2.5em;
+    font-weight: 100;
+    color: #999; }
+    .index-page svg.lg-logo .position-title.director {
+      margin: 0 0 30px 80px; }
+    .index-page svg.lg-logo .position-title.producer {
+      margin: 0 0 30px 40px; }
+    .index-page svg.lg-logo .position-title.consultant {
+      margin: 0 0 30px 6px; }
 
 .index-page .main-content {
   padding: 0 0 100px; }
