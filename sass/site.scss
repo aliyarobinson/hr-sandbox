@@ -81,8 +81,8 @@ button {
   outline-color: transparent;*/
 }
 
-a:focus, button:focus {
-  outline: #fff solid 1px;
+a:focus, button:focus, .focus {
+  outline: transparent solid 1px;
 }
 
 img {

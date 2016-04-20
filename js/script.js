@@ -204,10 +204,10 @@ var HR = HR || {};
       var $loading = $('.loader').hide();
       $(document)
         .ajaxStart(function () {
-          $loading.show();
+          $loading.show(400);
         })
         .ajaxStop(function () {
-          $loading.hide();
+          $loading.hide(400);
         });
 
         // $( "a" ).keydown(function() {
@@ -314,13 +314,30 @@ var HR = HR || {};
       /**************************************/
       /*   Remove/Add outline on a/button click
       /***************************************************/
-      $("body").on("mousedown", "*", function(e) {
-        if (($(this).is(":focus") || $(this).is(e.target)) && $(this).css("outline-style") == "none") {
-            $(this).css("outline", "none").on("blur", function() {
-                $(this).off("blur").css("outline", "");
-            });
-        }
-      });
+      // $("body").on("mousedown", "*", function(e) {
+      //   // if (($(this).is(":focus") || $(this).is(e.target)) && $(this).css("outline-style") !== "none") {
+      //   if (($(this).is(":focus") || $(this).is(e.target)) && $(this).css("outline-style") !== "none") {
+      //   // if ($(this).css("outline-style") !== "none") {
+      //     $(this).css("outline", "none").on("blur", function() {
+      //       $(this)
+      //       .off("blur")
+      //       .addClass('focus');
+      //       // .css("outline", "");
+      //     });
+      //   }
+      // });
+
+      // $("body").on("mousedown", "a:focus, button:focus", function(e) {
+      //   console.log('clicked focused element');
+      //   $(this).css('outline-color','transparent');
+      // });
+
+      // // $("body").on("mouseup mouseleave blur", "a:focus, button:focus", function(e) {
+      // $("body").on("blur", "a:focus, button:focus", function(e) {
+      //   console.log('clicked focused element');
+      //   $(this).css('outline-color','#fff');
+      // });
+
 
       /**************************************/
       /*   Site Nav button animation on click
