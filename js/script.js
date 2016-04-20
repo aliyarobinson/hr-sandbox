@@ -34,7 +34,12 @@ var HR = HR || {};
       var curr_img = $('.lg-logo image.show-item');
       var imgInterval = setInterval(function(){ 
         animateImgs();
+        if (img_counter === 1){
+          console.log('almost end of counter');
+        }
         if (img_counter === 0){
+          console.log('end of counter');
+          $('.ad-module').addClass('active');
           clearInterval(imgInterval);
         }
       }, 600);
