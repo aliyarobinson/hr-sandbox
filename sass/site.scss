@@ -926,7 +926,7 @@ img {
   margin-left: -100px;
   opacity: 1;
   max-height: 900px;
-  transition: 1s;
+  transition: 400ms;
 }
 
 .loader.collapsed {
@@ -1300,9 +1300,6 @@ img {
 
 
 
-
-
-
 @media screen and (max-width: 900px) {
 
   .wrapper {
@@ -1358,23 +1355,26 @@ img {
   }
 }
 
+@media screen and (max-width: 720px) {
+  .banner-ad {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 600px) {
 
+  .more-videos {
+    display: none;
+  }
 
-
- .more-videos,
- .banner-ad {
-  display: none;
- }
-
- .legal{
-  color: #fff;
-  font-size: 20px;
-  letter-spacing: 0px;
-  width: 100%;
-  max-width: 70px;
-  font-family: 'DISCO', arial;
-}
+  .legal{
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 0px;
+    width: 100%;
+    max-width: 70px;
+    font-family: 'DISCO', arial;
+  }
 
   .titles {
     position: absolute;

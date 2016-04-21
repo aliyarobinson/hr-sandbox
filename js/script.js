@@ -8,6 +8,7 @@ var HR = HR || {};
   HR = {
     currPageName:"",
     homeState: false,
+    loader: $('.loader'),
     pageAreaElem: $('html'),
     sideNavElem: $('.site-nav'),
     siteNavBtnElem: $('.site-nav-btn'), 
@@ -152,9 +153,9 @@ var HR = HR || {};
         console.log('home state notified');
         document.querySelector('body').classList.add('home-page');
         HR.transitionContent('index');
-        if (HR.imagesLoaded){
-          HR.homeAnim();
-        }
+        // if (HR.imagesLoaded){
+        //   HR.homeAnim();
+        // }
         // HR.homeAnim();
       },
       bio: function() {
@@ -190,8 +191,19 @@ var HR = HR || {};
         //   }
         // }
         // 
+        HR.loader.removeClass('collapsed');
           
-        $( "#content-holder .wrapper" ).load( page + ".html .content-container section" );
+        $( "#content-holder .wrapper" ).load( page + ".html .content-container section", function() {
+          console.log( "Load was performed." );
+          if(HR.isHome(page)){
+            if (HR.imagesLoaded){
+              HR.loader.addClass('collapsed');
+              HR.homeAnim();
+            }
+          } else {
+            HR.loader.addClass('collapsed');
+          }
+        });
 
         $('body').attr('class', '').addClass(page + '-page');
 
@@ -201,19 +213,21 @@ var HR = HR || {};
     },
     init: function () {
       console.log('init');
+      HR.loader.removeClass('collapsed');
+
 
       HR.menuBtn.registerObserver(HR.sideNav);
       HR.pageLocation.registerObserver(HR.pageState);
       HR.pageArea.registerObserver(HR.sideNav);
 
-      var $loading = $('.loader').hide();
-      $(document)
-        .ajaxStart(function () {
-          $loading.show(400);
-        })
-        .ajaxStop(function () {
-          $loading.hide(400);
-        });
+      // var $loading = $('.loader').hide();
+      // $(document)
+      //   .ajaxStart(function () {
+      //     $loader.show(400);
+      //   })
+      //   .ajaxStop(function () {
+      //     $loader.hide(400);
+      //   });
 
         // $( "a" ).keydown(function() {
         //   $(this).css({'outline':'solid'});

@@ -940,7 +940,7 @@ img {
   margin-left: -100px;
   opacity: 1;
   max-height: 900px;
-  transition: 1s; }
+  transition: 400ms; }
 
 .loader.collapsed {
   opacity: 0;
@@ -1279,9 +1279,11 @@ img {
   .works-page .video-title {
     margin: 5px 0;
     width: 100%; } }
-@media screen and (max-width: 600px) {
-  .more-videos,
+@media screen and (max-width: 720px) {
   .banner-ad {
+    display: none; } }
+@media screen and (max-width: 600px) {
+  .more-videos {
     display: none; }
 
   .legal {
