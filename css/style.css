@@ -291,6 +291,41 @@ img {
     top: 0;
     left: 0;
     opacity: 1; }
+  .banner-ad .watch-mod {
+    position: absolute;
+    z-index: 3;
+    color: #fff;
+    top: 10px;
+    left: 40px; }
+  .banner-ad .watch-copy {
+    font-style: italic; }
+  .banner-ad .watch-icons {
+    margin: 10px 0 0 -20px; }
+    .banner-ad .watch-icons .icon {
+      background: url(../img/banner_imgs/banner-icon-sprite.png) 0 0 no-repeat;
+      float: left; }
+      .banner-ad .watch-icons .icon a {
+        height: 100%; }
+      .banner-ad .watch-icons .icon:nth-child(1) {
+        width: 46px;
+        height: 15px; }
+        .banner-ad .watch-icons .icon:nth-child(1):hover {
+          background-position: 0 -23px; }
+      .banner-ad .watch-icons .icon:nth-child(2) {
+        width: 16px;
+        height: 16px;
+        background-position: -53px 0;
+        margin: 0 0 0 8px; }
+        .banner-ad .watch-icons .icon:nth-child(2):hover {
+          background-position: -53px -23px; }
+  .banner-ad .title-mod {
+    position: absolute;
+    z-index: 3;
+    color: #fff;
+    right: 20px;
+    top: 20px; }
+    .banner-ad .title-mod .title {
+      font-size: 22px; }
   .banner-ad.animate .banner-img:nth-child(6) {
     animation: fade-banner-item 500ms .4s ease-out forwards; }
   .banner-ad.animate .banner-img:nth-child(5) {

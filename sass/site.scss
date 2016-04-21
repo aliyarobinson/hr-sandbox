@@ -210,6 +210,63 @@ img {
     opacity: 1;
   }
 
+  .watch-mod {
+    position: absolute;
+    z-index: 3;
+    color: #fff;
+    top: 10px;
+    left: 40px;
+  }
+
+  .watch-copy {
+    font-style: italic;
+  }
+
+  .watch-icons {
+
+    margin: 10px 0 0 -20px;
+
+    .icon {
+      background: url(../img/banner_imgs/banner-icon-sprite.png) 0 0 no-repeat;
+      float: left;
+
+      a {
+        height: 100%;
+      }
+
+      &:nth-child(1){
+        width: 46px;
+        height: 15px;
+        &:hover {
+          background-position: 0 -23px;
+        }
+      }
+
+      &:nth-child(2){
+        width: 16px;
+        height: 16px;
+        background-position: -53px 0;
+        margin: 0 0 0 8px;
+
+        &:hover {
+          background-position: -53px -23px;
+        }
+      }
+    }
+  }
+
+  .title-mod {
+    position: absolute;
+    z-index: 3;
+    color: #fff;
+    right: 20px;
+    top: 20px;
+
+    .title {
+      font-size: 22px;
+    }
+  }
+
   &.animate {
     .banner-img {
       &:nth-child(6) {
@@ -227,9 +284,6 @@ img {
       &:nth-child(2) {
         animation: fade-banner-item 600ms 4s ease-out forwards;
       }
-      // &:nth-child(1) {
-      //   animation: fade-banner-item 500ms .6s ease-out forwards;
-      // }
     }
   }
 
