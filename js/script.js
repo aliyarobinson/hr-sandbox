@@ -40,7 +40,7 @@ var HR = HR || {};
         }
         if (img_counter === 0){
           console.log('end of counter');
-          $('.ad-module').addClass('active');
+          $('.ad-module').addClass('active').delay(400).find('.banner-ad').addClass('animate');
           clearInterval(imgInterval);
         }
       }, 600);
