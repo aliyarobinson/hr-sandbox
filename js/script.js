@@ -202,6 +202,8 @@ var HR = HR || {};
             }
           } else {
             HR.loader.addClass('collapsed');
+            $('.ad-module').addClass('active').delay(400).find('.banner-ad').addClass('animate');
+
           }
         });
 
