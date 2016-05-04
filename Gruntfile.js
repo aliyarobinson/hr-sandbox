@@ -17,10 +17,19 @@ module.exports = function(grunt) {
 				'sourceMapStyle': 'embed'
 			}
 		},
+		cssmin: {
+		   	dist: {
+				options: {
+				},
+				files: {
+				 'css/style.min.css': ['css/style.css']
+				}
+		  	}
+		},
 		uglify: {
 			task: {
 				src: ['js/bundle.js'], 
-				dest: 'js/bundle.js'
+				dest: 'js/script.min.js'
 			},
 			options: {
 				'mangle': {},
@@ -92,9 +101,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['clean', 'concat', 'uglify']);
-	grunt.registerTask('go', ['watch']);
+	grunt.registerTask('default', ['clean', 'concat', 'cssmin', 'uglify']);
+	grunt.registerTask('watch-sass', ['watch', 'cssmin:dist']);
 	
 };
