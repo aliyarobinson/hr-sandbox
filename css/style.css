@@ -586,6 +586,9 @@ img {
   left: -150%;
   opacity: 1; }
 
+.-ms- .site-nav-bkgd {
+  display: none; }
+
 .list-nav {
   width: 80%; }
 
